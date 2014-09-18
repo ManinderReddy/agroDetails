@@ -1,0 +1,28 @@
+<%= render "shared/error_messages", object: f.object %>
+<table class="tableDetails">
+	<tr>
+		<td class="field"><%= f.label :farm_area, "Area" %>:</td>
+		<td><%=f.text_field :farm_area%></td>
+	</tr>
+	<tr>
+		<td class="field"><%= f.label :farm_description, "Description" %>:</td>
+		<td><%= f.text_area :farm_description, class: "message_area" %> </td>
+	</tr>
+	<tr>
+	   <td class="field"><%= f.label :farm_address, "Address" %>:</td>
+	   <td><%= f.text_field :farm_address %></td>
+	</tr>
+	<tr>
+	   <td class="field"><%= f.label :farm_city, "City" %>:</td>
+	   <td><%= f.text_field :farm_city %></td>
+	</tr>
+	<tr>
+	   <td class="field"><%= f.label :farm_state, "State" %>:</td>
+	   <td><%= f.text_field :farm_state %></td>
+	</tr>
+	<tr>
+	   <td class="field"><%= f.label :farm_country, "Country" %>:</td>
+	   <td><%= f.text_field :farm_country %></td>
+	</tr>
+
+</table>

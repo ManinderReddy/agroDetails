@@ -1,0 +1,2 @@
+module FarmDetailsHelper
+end

@@ -1,0 +1,31 @@
+<%= render 'shared/error_messages', :object => f.object %>
+<table class="profile">
+<tr>
+	<td class="field"><%= f.label :first_name %>*:</td>
+	<td><%= f.text_field :first_name %></td>
+</tr>
+<tr>
+	<td class="field"><%= f.label :last_name %>*:</td>
+	<td><%= f.text_field :last_name %></td>
+</tr>
+<tr>
+	<td class="field"> <%= f.label :phone_no %>*:</td>
+	<td><%= f.text_field :phone_no %></td>
+</tr>
+<tr>
+   <td class="field"><%= f.label :address %>*:</td>
+   <td><%= f.text_field :address %></td>
+</tr>
+<tr>
+   <td class="field"><%= f.label :city %>*:</td>
+   <td><%= f.text_field :city %></td>
+</tr>
+<tr>
+   <td class="field"><%= f.label :state %>*:</td>
+   <td><%= f.text_field :state %></td>
+</tr>
+<tr>
+   <td class="field"><%= f.label :country %>*:</td>
+   <td><%= f.text_field :country %></td>
+</tr>
+</table>

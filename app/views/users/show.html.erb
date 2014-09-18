@@ -1,0 +1,37 @@
+<h1>Profile</h1>
+
+<table class="tableDetails">
+	<tr>
+		<td class="field">First Name:</td>
+		<td><%= @user.first_name %></td>
+	</tr>
+	<tr>
+		<td class="field">Last Name:</td>
+		<td><%= @user.last_name %></td>
+	</tr>
+	<tr>
+		<td class="field">Email:</td>
+		<td><%= @user.email %></td>
+	</tr>
+	<tr>
+		<td class="field">Phone No:</td>
+		<td><%= @user.phone_no %></td>
+	</tr>
+	<tr>
+		<td class="field">Address:</td>
+		<td><%= @user.address %></td>
+	</tr>
+	<tr>
+		<td class="field">City:</td>
+		<td><%= @user.city %></td>
+	</tr>
+	<tr>
+		<td class="field">State:</td>
+		<td><%= @user.state %></td>
+	</tr>
+	<tr>
+		<td class="field">Country:</td>
+		<td><%= @user.country %></td>
+	</tr>
+</table>
+<p><%= link_to "<button>Update Profile</button>".html_safe, edit_user_path(current_user) %></p>

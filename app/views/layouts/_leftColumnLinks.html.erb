@@ -1,0 +1,10 @@
+<div id="leftcolumnwrap">
+   <div id="leftcolumn">
+     <% if signed_in?%>
+		<ul class="sidebar">
+			<li><%= link_to "Farm Details", farmdetails_path %></li>
+			<li><%= link_to "Soil Details", "#"%></li>
+		</ul>
+		<% end%>
+   </div> 
+</div>

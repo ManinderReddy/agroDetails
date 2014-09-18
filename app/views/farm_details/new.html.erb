@@ -1,0 +1,10 @@
+<h2>Farm Details</h2>
+<div id="newFarm">
+	<%= form_for(@newFarm) do |fields|%>
+	<%= render "newFarmFields", f:fields%>
+	<div class="actions">
+	<%= fields.submit "Add"%>
+	</div>
+	<% end%>
+	<%= link_to "<button>Back</button>".html_safe, :back %>
+</div>

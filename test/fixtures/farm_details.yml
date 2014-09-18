@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: farm_details
+#
+#  id               :integer          not null, primary key
+#  user_id          :integer
+#  farm_area        :float
+#  farm_address     :string(255)
+#  farm_description :text
+#  created_at       :datetime
+#  updated_at       :datetime
+#  farm_city        :string(255)
+#  farm_state       :string(255)
+#  farm_country     :string(255)
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  farm_area: 1.5
+  farm_address: MyString
+  farm_description: MyText
+
+two:
+  user_id: 1
+  farm_area: 1.5
+  farm_address: MyString
+  farm_description: MyText

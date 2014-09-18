@@ -1,0 +1,14 @@
+<h2> Update Profile</h2>
+<%= form_for(@user) do |fields|%>
+	<%= render 'editProfileDetails', f:fields%>
+	<table>
+	<tr>
+	<td>
+		<%= fields.submit "Submit"%>
+	</td>
+	<td>
+		<%= button_to "Cancel", :back %>
+	</td>
+	</tr>
+	</table>
+<% end%>

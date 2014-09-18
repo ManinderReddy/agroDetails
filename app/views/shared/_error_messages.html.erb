@@ -1,0 +1,16 @@
+<% if object.errors.any? %>
+   <div class="error_explanation">
+      <h3>
+         Please rectify <%= pluralize(object.errors.count, "error") %>
+         to save <%= object.class.to_s.underscore.humanize.downcase%>         
+      </h3>
+   <p>Error messages:</p>
+   <ul>
+      <% object.errors.full_messages.each do |error_msg| %>
+      <li>
+         <%= error_msg%>  
+      </li>
+      <% end %>
+   </ul>   
+   </div>   
+<% end %>

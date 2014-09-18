@@ -1,0 +1,16 @@
+<h1>Sign In..!</h1>
+<%=  form_for(:sessions, url: sessions_path) do |login|%>
+	<table>
+		<tr>
+		 <td class="fields"><%= login.label :email%></td>
+		<td><%= login.text_field :email%></td>
+		</tr>
+		<tr>
+		<td class="fields"><%= login.label :password%></td>
+		<td><%= login.password_field :password%></td>
+		</tr>
+	</table>
+	<div class="actions"><%= login.submit "Sign In"%></div>
+<% end%>
+
+<p>New User?  <%= link_to "SignUp here! ", signup_path %></p>
