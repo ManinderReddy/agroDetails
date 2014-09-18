@@ -1,28 +1,27 @@
 == README
+== AGRO DETAILS
+This README of Agro Details application which is a FARM Management database system. Right now it is under development and I think I will complete this application in next 3 months.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Things you do using Agro Details application:
 
-Things you may want to cover:
+* Manage your farm details
 
-* Ruby version
+* Manage soil details of each farm
 
-* System dependencies
+* Manage fertilizers used on each farm and respective season
 
-* Configuration
+* Manage expenditure incured on farm per season or per farm
 
-* Database creation
+* Search for diffrent type of crops on soil basis
 
-* Database initialization
+* Search for fertilizers that can used dependent on crop
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
+* Search crops based on season and soil
 
 * ...
 
 
-Please feel free to use a different markup language if you do not plan to run
+Please feel free to input your suggesions if you have any so that I can build them into this application.
+
+Thank you for viewing my application.
 <tt>rake doc:app</tt>.
