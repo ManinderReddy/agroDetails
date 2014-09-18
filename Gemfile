@@ -19,7 +19,7 @@ gem 'will_paginate'
 # Use ActiveModel has_secure_password
 gem 'bcrypt'
 
-group :development do
+group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
   #Annotates Models fixtures etc..
