@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   match '/signup',        to: 'users#new',        :via => [:get]
   match '/signin',        to: 'sessions#new',     :via => [:get]
   match '/signout',       to: 'sessions#destroy', :via => [:get]
-  match '/farmdetails',   to: 'farm_details#home',:via => [:get]
+  match '/farmdetails',   to: 'farm_details#index',:via => [:get]
   match '/addfarm',       to: 'farm_details#new', :via => [:get]
 
 

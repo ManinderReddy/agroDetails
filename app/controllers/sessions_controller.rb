@@ -1,5 +1,8 @@
 class SessionsController < ApplicationController
   
+  def index
+    redirect_back_or_user_path(root_path)
+  end
   def new
   	@title = "Sign In"
   end

@@ -1,7 +1,7 @@
 class FarmDetailsController < ApplicationController
 before_filter :authenticate
 
-	def home
+	def index
 		@title = "Farm Details"		
 	end
 

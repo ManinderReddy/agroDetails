@@ -34,5 +34,5 @@
 			<td><%= @user.country %></td>
 		</tr>
 	</table>
-	<button class="submit_button"><%= link_to "Update Profile", edit_user_path(current_user) %></button>
+	<%= link_to "Update Profile", edit_user_path(current_user), :class => "submit_button" %>
 </div>

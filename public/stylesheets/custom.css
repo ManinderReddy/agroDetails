@@ -121,7 +121,7 @@ body {
   clear: both;
 }
 
-#homeFarmButton ul li{
+#farmDetailsHome ul li{
   list-style-type: none;
   padding: 0.2em;
   font-weight: bold;
@@ -204,33 +204,6 @@ h2.sideHeading {
   box-shadow: 1px 1px 7px #222;
 }
 /*button style*/
-.button_style {
-  width: 20%;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  text-align: center;
-  height: 30px;
-  border-radius: 5px;
-  outline: 0;
-  -moz-outline-style: none;
-  background: #e74c3c;
-  border: none;
-  color: white;
-  font-size: 150%;
-  font-weight: bold;
-  padding: 15px;
-  cursor: pointer;
-  transition: box-shadow .4s ease;
-}
-
-.button_style:hover {
-  box-shadow: 1px 1px 5px #555;
-}
-.button_style:active {
-  box-shadow: 1px 1px 7px #222;
-}
-
 .submit_button {
   border-radius: 5px;
   outline: 0;
@@ -246,17 +219,32 @@ h2.sideHeading {
   cursor: pointer;
   transition: box-shadow .4s ease;
 }
-#signUp .submit_button,
-#showProfile .submit_button{
+
+#showProfile .submit_button
+{
+  color: white;
+  width: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  text-align: center;
+  height: 30px;
+  padding: 5px;
+}
+
+#signUp .submit_button{
   width: 30%;
   margin-left: 36%;
   margin-bottom: 17px;
   height: 40px;
 }
 
-.submit_button a{
+#editProfile .submit_button,
+#addFarmDetails .submit_button{
   color: white;
+  padding: 3px;
 }
+
 .submit_button:hover {
   box-shadow: 1px 1px 5px #555;
 }
@@ -266,9 +254,7 @@ h2.sideHeading {
 
 .button_align{
   float: right;
-   /*background: #fff;*/
-   
-   white-space: nowrap;
+  white-space: nowrap;
 }
 
 .button_align ul li{

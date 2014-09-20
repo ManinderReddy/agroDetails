@@ -1,11 +1,12 @@
-<h2>Farm Details</h2>
-<div id="newFarm">
+<div id="addFarmDetails">
+	<h2>Farm Details</h2>
 	<%= form_for(@newFarm) do |fields|%>
-	<%= render "newFarmFields", f:fields%>
-	<div class="button_align">
-		<%= fields.submit "Submit"%>
-		<%= link_to "<button>Cancel</button>".html_safe, :back %>
-	</div>
+		<%= render "newFarmFields", f:fields%>
+		<div class="button_align">
+			<ul>
+				<li><%= fields.submit "Submit", class: 'submit_button' %></li>
+				<li><%= link_to "Cancel", :back, class: 'submit_button' %></li>
+			</ul>
+		</div>	
 	<% end%>
-	
 </div>
