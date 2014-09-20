@@ -11,7 +11,7 @@
 }
 
 body {
-    font-family:  Verdana, Arial, Helvetica, sans-serif;
+    font-family:  'Helvetica Neue', Arial, Sans-Serif;
     font-size: 14px;
     color:#fff
 }
@@ -136,8 +136,7 @@ textarea.message_area {
 /*Links*/
 
 a{
- color: #09c;
- text-decoration: none;
+  text-decoration: none;
 }
 
 
@@ -160,6 +159,7 @@ nav ul li{
 nav ul li a{
    padding: 0 5px;
    font-weight: bold;
+   text-decoration: none;
 }
 nav ul li a:visited{
    color: #906;
@@ -170,7 +170,13 @@ nav ul li a:hover{
 
 
 /*Signup button styling*/
-
+h2.sideHeading {
+  text-align: center;
+  font-weight: 200;
+  font-size: 2em;
+  margin-top: 7px;
+  color: #34495e;
+}
 #homePage #signup_button{
   width: 30%;
   margin-left: auto;
@@ -199,46 +205,33 @@ nav ul li a:hover{
 }
 /*button style*/
 .button_style {
-  font-family: arial;
-  color: #0A1B33 !important;
-  font-size: 14px;
-  text-shadow: 1px 1px 0px #798AB8;
-  box-shadow: 1px 1px 1px #52616B;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-  border: 2px solid #363F63;
-  background: #F7F7F5;
+  width: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  text-align: center;
+  height: 30px;
+  border-radius: 5px;
+  outline: 0;
+  -moz-outline-style: none;
+  background: #e74c3c;
+  border: none;
+  color: white;
+  font-size: 150%;
+  font-weight: bold;
+  padding: 15px;
+  cursor: pointer;
+  transition: box-shadow .4s ease;
 }
+
 .button_style:hover {
-  color: #14396A !important;
-  background: #E3E0D8;
   box-shadow: 1px 1px 5px #555;
 }
 .button_style:active {
   box-shadow: 1px 1px 7px #222;
 }
 
-
-.button_align{
-   float: right;
-   /*background: #fff;*/
-   padding: 0 0.7em;
-   white-space: nowrap;
-}
-
-.button_align ul li{
-  list-style-type: none;
-  padding: 0.2em;
-  font-weight: bold;
-  display: inline-block;
-}
-
 .submit_button {
-  width: 30%;
-  margin-left: 36%;
-  margin-bottom: 17px;
-  height: 40px;
   border-radius: 5px;
   outline: 0;
   -moz-outline-style: none;
@@ -253,6 +246,17 @@ nav ul li a:hover{
   cursor: pointer;
   transition: box-shadow .4s ease;
 }
+#signUp .submit_button,
+#showProfile .submit_button{
+  width: 30%;
+  margin-left: 36%;
+  margin-bottom: 17px;
+  height: 40px;
+}
+
+.submit_button a{
+  color: white;
+}
 .submit_button:hover {
   box-shadow: 1px 1px 5px #555;
 }
@@ -260,6 +264,18 @@ nav ul li a:hover{
   box-shadow: 1px 1px 7px #222;
 }
 
+.button_align{
+  float: right;
+   /*background: #fff;*/
+   
+   white-space: nowrap;
+}
+
+.button_align ul li{
+  list-style-type: none;
+  padding: 0.2em;
+  display: inline-block;
+}
 
 
 /*Sign Up form*/
@@ -281,6 +297,21 @@ td label{
   font-family: Verdana, Arial, Helvetica, sans-serif;
   font-size: 14px;
   font-weight: normal;
+}
+td label{
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+table tr.showProfileValues td{
+  border-radius: 5px;
+  height: 35px;
+  outline: 0;
+  -moz-outline-style: none;
+  border: 1px solid #bbb;
+  padding: 0 0 0 10px;
+  font-size: 14px;
 }
 
 table.tableDetails td input[type="text"],

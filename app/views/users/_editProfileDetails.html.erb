@@ -1,31 +1,42 @@
 <%= render 'shared/error_messages', :object => f.object %>
-<table class="profile">
+<table class="tableDetails">
 <tr>
-	<td class="field"><%= f.label :first_name %>*:</td>
-	<td><%= f.text_field :first_name %></td>
+   <td class="field">
+      <div><%= f.label :first_name %></div>
+      <div><%= f.text_field :first_name %></div>
+   </td>
+   <td class="field">
+      <div><%= f.label :last_name %></div>
+      <div><%= f.text_field :last_name%></div>
+   </td>
 </tr>
 <tr>
-	<td class="field"><%= f.label :last_name %>*:</td>
-	<td><%= f.text_field :last_name %></td>
+   <td class="field">
+      <div><%= f.label :phone_no %></div>
+      <div><%= f.text_field :phone_no, style: "width:80%;"  %></div>
+   </td>
 </tr>
 <tr>
-	<td class="field"> <%= f.label :phone_no %>*:</td>
-	<td><%= f.text_field :phone_no %></td>
+   <td class="field">
+      <div><%= f.label :address %></div>
+      <div><%= f.text_field :address, style: "width:80%;"%></div>
+   </td>
+   <td class="field">
+      <div><%= f.label :city %></div>
+      <div><%= f.text_field :city %></div>
+   </td>
 </tr>
+
 <tr>
-   <td class="field"><%= f.label :address %>*:</td>
-   <td><%= f.text_field :address %></td>
-</tr>
-<tr>
-   <td class="field"><%= f.label :city %>*:</td>
-   <td><%= f.text_field :city %></td>
-</tr>
-<tr>
-   <td class="field"><%= f.label :state %>*:</td>
-   <td><%= f.text_field :state %></td>
-</tr>
-<tr>
-   <td class="field"><%= f.label :country %>*:</td>
-   <td><%= f.text_field :country %></td>
+   <td class="field">
+      <div><%= f.label :state %></div>
+      <div><%= f.text_field :state %></div>
+   </td>
+   <td class="field">
+      <div><%= f.label :country %></div>
+      <div><%= f.text_field :country%></div>
+   </td>
 </tr>
 </table>
+
+

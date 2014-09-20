@@ -1,6 +1,6 @@
 <div id="login">
  <div class="login-wrap">
-  <h2>Login</h2>
+  <h2 class="sideHeading">Login</h2>
   <div class="form">
   <%=  form_for(:sessions, url: sessions_path) do |login|%>
     <%= login.text_field :email, :placeholder => "email"%>

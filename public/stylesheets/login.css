@@ -10,13 +10,6 @@
   width: 350px;
   padding: 10px;
 }
-#login .login-wrap h2 {
-  text-align: center;
-  font-weight: 200;
-  font-size: 2em;
-  margin-top: 7px;
-  color: #34495e;
-}
 #login .login-wrap .form {
   padding-top: 10px;
 }
