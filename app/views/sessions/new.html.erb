@@ -1,16 +1,14 @@
-<h1>Sign In..!</h1>
-<%=  form_for(:sessions, url: sessions_path) do |login|%>
-	<table>
-		<tr>
-		 <td class="fields"><%= login.label :email%></td>
-		<td><%= login.text_field :email%></td>
-		</tr>
-		<tr>
-		<td class="fields"><%= login.label :password%></td>
-		<td><%= login.password_field :password%></td>
-		</tr>
-	</table>
-	<div class="actions"><%= login.submit "Sign In"%></div>
-<% end%>
+<div id="login">
+ <div class="login-wrap">
+  <h2>Login</h2>
+  <div class="form">
+  <%=  form_for(:sessions, url: sessions_path) do |login|%>
+    <%= login.text_field :email, :placeholder => "email"%>
+    <%= login.password_field :password, :placeholder => "password" %>
+    <%= login.submit "Sign In", id:"login_button"%>
+    <%= link_to "<p> Don't have an account? Register </p>".html_safe, signup_path %>
+    <% end%>
+  </div>
+</div>
+</div>
 
-<p>New User?  <%= link_to "SignUp here! ", signup_path %></p>

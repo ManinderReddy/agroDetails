@@ -2,33 +2,29 @@
 .round{
    -moz-border-radius: 10px;
    -webkit-border-radius: 10px;
-   border-radius: 10px;
+   border-radius: 5px;
 }
 
 #wrapper {
+    margin: 0 auto;
     width: 1000px;
 }
 
-body{
-   /*background: #b0c4de;*/
-  font-family: Verdana, Arial, Helvetica, sans-serif;
-  font-size: 13px;
-  color:#333
+body {
+    font-family:  Verdana, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color:#fff
 }
 
 /*Header*/
-#headerwrap {
-    width: 1000px;
-    float: left;
-    margin: 0 auto;
-}
-
 #header {
     height: 75px;
-    background: #FF6633;
-    border-radius: 10px;
+    width: 1000px;
+    background: #2B3840;
+    /*border-radius: 10px;*/
     border: 1px solid #eb521f;
     margin: 5px;
+    float: left;
 }
 
 #header img{
@@ -41,35 +37,28 @@ body{
    text-align: center;
    font-size: 250%;
    font-weight: bold;
+   color: white;
 }
 
-
-#navigationwrap {
-    width: 1000px;
-    float: left;
-    margin: 0 auto;
-}
 
 #navigation {
+    float: left;
     height: 40px;
-    background: #FFCC33;
-    border-radius: 10px;
+    width: 1000px;
+    background: #2B3840;
+    /*border-radius: 10px;*/
     border: 1px solid #ebb81f;
     margin: 5px;
     text-align: left;
 }
 
-#leftcolumnwrap {
-    width: 200px;
-    float: left;
-    margin: 0 auto;
-}
-
 #leftcolumn {
     min-height: 300px;
-    background: #33CCFF;
-    border-radius: 10px;
-    border: 1px solid #1fb8eb;
+    background: #95a5a6;
+    width: 200px;
+    float: left;
+    /*border-radius: 10px;*/
+    border: 1px solid #fff;
     margin: 5px;
 }
 
@@ -83,27 +72,25 @@ body{
 #leftcolumn ul li{
   list-style-type: none;
   padding: 0.2em;
-  border: 1px solid #1fb8eb;
+  color: purple;
+  border: 1px solid #fff;
   font-weight: bold;
 }
 
 #leftcolumn ul li a:visited{
-   color: transparent;
+   color: inherit;
 }
 
 #leftcolumn ul li a:hover{
    text-decoration: none;
 }
 
-#contentwrap {
-    width: 800px;
-    float: left;
-    margin: 0 auto;
-}
-
 #content{
     min-height: 300px;
-    background: #FFFFFF;
+    float: left;
+    background: #ecf0f1;
+    width: 750px;
+    color: #333;
     margin: 5px;
 }
 
@@ -112,7 +99,29 @@ body{
    font-weight: bold;
 }
 
-#editFarm ul li{
+#footer {
+    height: 40px;
+    width: 1000px;
+    background: #2B3840;
+    clear: both;
+    /*border-radius: 10px;*/
+    border: 1px solid #1feb52;
+    margin: 5px;
+    text-align: center;
+}
+
+#footer nav{
+   float: none;
+}
+
+#debug{
+  width: 1000px;
+  float: left;
+  margin: 0 auto;
+  clear: both;
+}
+
+#homeFarmButton ul li{
   list-style-type: none;
   padding: 0.2em;
   font-weight: bold;
@@ -131,19 +140,10 @@ a{
  text-decoration: none;
 }
 
-a:hover{
-   text-decoration: underline;
-   color: #000;
-}
-
-a:visited{
- color: #906;  
-}
 
 /*Navigation style*/
 nav{
    float: right;
-   /*background: #fff;*/
    padding: 0 0.7em;
    white-space: nowrap;
 }
@@ -171,59 +171,110 @@ nav ul li a:hover{
 
 /*Signup button styling*/
 
-a.signup_button{
-   margin-left: auto;
-   margin-right: auto;
-   display: block;
-   font-size: 150%;
-   text-align: center;
-   width: 190px;
-   background: #006400;
-   color: #fff;
-   padding: 15px;
-   font-weight: bold;
-   line-height: 1;
+#homePage #signup_button{
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  text-align: center;
+  height: 40px;
+  border-radius: 5px;
+  outline: 0;
+  -moz-outline-style: none;
+  background: #e74c3c;
+  border: none;
+  color: white;
+  font-size: 150%;
+  font-weight: bold;
+  padding: 15px;
+  cursor: pointer;
+  transition: box-shadow .4s ease;
+}
+
+#homePage #signup_button:hover {
+  box-shadow: 1px 1px 5px #555;
+}
+#homePage #signup_button:active {
+  box-shadow: 1px 1px 7px #222;
+}
+/*button style*/
+.button_style {
+  font-family: arial;
+  color: #0A1B33 !important;
+  font-size: 14px;
+  text-shadow: 1px 1px 0px #798AB8;
+  box-shadow: 1px 1px 1px #52616B;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  border: 2px solid #363F63;
+  background: #F7F7F5;
+}
+.button_style:hover {
+  color: #14396A !important;
+  background: #E3E0D8;
+  box-shadow: 1px 1px 5px #555;
+}
+.button_style:active {
+  box-shadow: 1px 1px 7px #222;
 }
 
 
-#footerwrap {
-    width: 1000px;
-    float: left;
-    margin: 0 auto;
-    clear: both;
+.button_align{
+   float: right;
+   /*background: #fff;*/
+   padding: 0 0.7em;
+   white-space: nowrap;
 }
 
-#footer {
-    height: 40px;
-    background: #33FF66;
-    border-radius: 10px;
-    border: 1px solid #1feb52;
-    margin: 5px;
-    text-align: center;
+.button_align ul li{
+  list-style-type: none;
+  padding: 0.2em;
+  font-weight: bold;
+  display: inline-block;
 }
 
-#footer nav{
-   float: none;
+.submit_button {
+  width: 30%;
+  margin-left: 36%;
+  margin-bottom: 17px;
+  height: 40px;
+  border-radius: 5px;
+  outline: 0;
+  -moz-outline-style: none;
 }
 
-#debug{
-  width: 1000px;
-  float: left;
-  margin: 0 auto;
-  clear: both;
+.submit_button {
+  background: #e74c3c;
+  border: none;
+  color: white;
+  font-size: 18px;
+  font-weight: 200;
+  cursor: pointer;
+  transition: box-shadow .4s ease;
 }
+.submit_button:hover {
+  box-shadow: 1px 1px 5px #555;
+}
+.submit_button:active {
+  box-shadow: 1px 1px 7px #222;
+}
+
+
 
 /*Sign Up form*/
 table.tableDetails{
   font-family: Verdana, Arial, Helvetica, sans-serif;
   font-size: 14px;
   font-weight: normal;
+  background-color: #ecf0f1;
 }
 
 td.field {
    width: 40%;
    text-align: left;
    vertical-align: middle;
+   background-color: #ecf0f1;
 }
 
 td label{
@@ -232,6 +283,24 @@ td label{
   font-weight: normal;
 }
 
+table.tableDetails td input[type="text"],
+table.tableDetails td input[type="password"]{
+  width: 60%;
+  margin-left: 1%;
+  margin-bottom: 7px;
+  height: 25px;
+  border-radius: 5px;
+  outline: 0;
+  -moz-outline-style: none;
+  border: 1px solid #bbb;
+  padding: 0 0 0 10px;
+  font-size: 14px;
+}
+
+table.tableDetails td input[type="text"]:focus,
+table.tableDetails td input[type="password"]:focus{
+  border: 1px solid #3498db;
+}
 
 
 div.actions{

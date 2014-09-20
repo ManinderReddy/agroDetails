@@ -1,0 +1,76 @@
+
+
+#login {
+  font-family: 'Helvetica Neue', Arial, Sans-Serif;
+}
+#login .login-wrap {
+  position: relative;
+  margin: 0 auto;
+  background: #ecf0f1;
+  width: 350px;
+  padding: 10px;
+}
+#login .login-wrap h2 {
+  text-align: center;
+  font-weight: 200;
+  font-size: 2em;
+  margin-top: 7px;
+  color: #34495e;
+}
+#login .login-wrap .form {
+  padding-top: 10px;
+}
+#login .login-wrap .form input[type="text"],
+#login .login-wrap .form input[type="password"]{
+  width: 80%;
+  margin-left: 10%;
+  margin-bottom: 17px;
+  height: 40px;
+  border-radius: 5px;
+  outline: 0;
+  -moz-outline-style: none;
+}
+
+#login .login-wrap .form #login_button {
+  width: 40%;
+  margin-left: 33%;
+  margin-bottom: 17px;
+  height: 40px;
+  border-radius: 5px;
+  outline: 0;
+  -moz-outline-style: none;
+}
+#login .login-wrap .form input[type="text"],
+#login .login-wrap .form input[type="password"] {
+  border: 1px solid #bbb;
+  padding: 0 0 0 10px;
+  font-size: 14px;
+}
+#login .login-wrap .form input[type="text"]:focus,
+#login .login-wrap .form input[type="password"]:focus {
+  border: 1px solid #3498db;
+}
+#login .login-wrap .form a {
+  text-align: center;
+  font-size: 10px;
+  color: #3498db;
+}
+#login .login-wrap .form a p {
+  padding-bottom: 1px;
+  font-size: 14px;
+}
+#login .login-wrap .form #login_button {
+  background: #e74c3c;
+  border: none;
+  color: white;
+  font-size: 18px;
+  font-weight: 200;
+  cursor: pointer;
+  transition: box-shadow .4s ease;
+}
+#login .login-wrap .form #login_button:hover {
+  box-shadow: 1px 1px 5px #555;
+}
+#login .login-wrap .form #login_button:active {
+  box-shadow: 1px 1px 7px #222;
+}

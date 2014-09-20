@@ -2,9 +2,10 @@
 <div id="newFarm">
 	<%= form_for(@newFarm) do |fields|%>
 	<%= render "newFarmFields", f:fields%>
-	<div class="actions">
-	<%= fields.submit "Add"%>
+	<div class="button_align">
+	<%= fields.submit "Submit"%>
+	<%= link_to "<button>Cancel</button>".html_safe, :back %>
 	</div>
 	<% end%>
-	<%= link_to "<button>Back</button>".html_safe, :back %>
+	
 </div>

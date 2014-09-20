@@ -1,5 +1,7 @@
+<div id="homePage">
 <h2>Welcome to <strong>Agro Details Application</strong>!</h2>
 <p>This <strong>Farm Management</strong> application, is a free app for farmers to maintain there day to day farm details.</p>
 <% if !signed_in?%>
-	<%= link_to "Sign up now!", signup_path, :class => "signup_button round"%>
+	<%= link_to "Sign up now!", signup_path, id: "signup_button" %>
 <% end%>
+</div>

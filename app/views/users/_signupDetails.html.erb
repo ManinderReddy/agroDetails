@@ -1,43 +1,53 @@
 <%= render "/shared/error_messages", :object => f.object%>
 <table class="tableDetails">
 <tr>
-	<td class="field"><%= f.label :first_name %>*:</td>
-	<td><%= f.text_field :first_name %></td>
+	<td class="field">
+		<div><%= f.label :first_name %></div>
+		<div><%= f.text_field :first_name %></div>
+	</td>
+	<td class="field">
+		<div><%= f.label :last_name %></div>
+		<div><%= f.text_field :last_name%></div>
+	</td>
 </tr>
 <tr>
-	<td class="field"><%= f.label :last_name %>*:</td>
-	<td><%= f.text_field :last_name %></td>
+	<td class="field">
+		<div><%= f.label :email %></div>
+		<div><%= f.text_field :email, style: "width:100%;" %></div>
+	</td>
 </tr>
 <tr>
-	<td class="field"> <%= f.label :email %>*:</td>
-	<td><%= f.text_field :email %></td>
+	<td class="field">
+		<div><%= f.label :address %></div>
+		<div><%= f.text_field :address, style: "width:80%;"%></div>
+	</td>
+	<td class="field">
+		<div><%= f.label :city %></div>
+		<div><%= f.text_field :city %></div>
+	</td>
+</tr>
+
+<tr>
+	<td class="field">
+		<div><%= f.label :state %></div>
+		<div><%= f.text_field :state %></div>
+	</td>
+	<td class="field">
+		<div><%= f.label :country %></div>
+		<div><%= f.text_field :country%></div>
+	</td>
 </tr>
 <tr>
-	<td class="field"> <%= f.label :phone_no %>*:</td>
-	<td><%= f.text_field :phone_no %></td>
+  <td class="field">
+		<div><%= f.label :password %></div>
+		<div><%= f.password_field :password %></div>
+	</td>
 </tr>
 <tr>
-   <td class="field"><%= f.label :address %>*:</td>
-   <td><%= f.text_field :address %></td>
+	<td class="field">
+		<div><%= f.label :password_confirmation, "Confirm Password" %></div>
+		<div><%= f.password_field :password_confirmation %></div>
+	</td>
 </tr>
-<tr>
-   <td class="field"><%= f.label :city %>*:</td>
-   <td><%= f.text_field :city %></td>
-</tr>
-<tr>
-   <td class="field"><%= f.label :state %>*:</td>
-   <td><%= f.text_field :state %></td>
-</tr>
-<tr>
-   <td class="field"><%= f.label :country %>*:</td>
-   <td><%= f.text_field :country %></td>
-</tr>
-<tr>
-	<td class="field">   <%= f.label :password %>*:</td>
-	<td><%= f.password_field :password %></td>
-</tr>
-<tr>
-   <td class="field"><%= f.label :password_confirmation, "Confirm Password" %>*:</td>
-	<td><%= f.password_field :password_confirmation %></td>
-</tr>
+
 </table>

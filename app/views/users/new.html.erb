@@ -1,7 +1,9 @@
-<h1>Sign Up</h1>
+<div id="signUp">
+<h2>Sign Up</h2>
+<div class="form">
 <%= form_for(@user) do |fields|%>
 	<%= render "signupDetails", f: fields%>
-	 <div class="actions">
-      <%= fields.submit "Sign Up"  %>
-   </div>
+	<%= fields.submit "Create Account", class: 'submit_button'%>
 <% end%>
+</div>
+</div>
