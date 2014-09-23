@@ -1,0 +1,11 @@
+<h3>Edit details goes here....</h3>
+<%= form_for(@farm_details, :url => update_selected_farm_detail_path, :html => { :method => :put }) do |fields| %>
+<%= hidden_field_tag "farm_id", @farm_details.id %>
+<%= render "newFarmFields", f:fields%>
+<div class="button_align">
+		<ul>
+			<li><%= fields.submit "Submit", class: 'submit_button' %></li>
+			<li><%= link_to "Cancel", :back, class: 'submit_button' %></li>
+		</ul>
+	</div>
+<% end%>

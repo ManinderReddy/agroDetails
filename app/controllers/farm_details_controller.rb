@@ -2,7 +2,8 @@ class FarmDetailsController < ApplicationController
 before_filter :authenticate
 
 	def index
-		@title = "Farm Details"		
+		@title = "Farm Details"
+		@farm_details = current_user.farm_details
 	end
 
 	def new
@@ -13,19 +14,31 @@ before_filter :authenticate
 	def create
 		@newFarm = current_user.farm_details.build(params[:farm_detail])
 		if @newFarm.save
-			render 'home', flash:{success: "Added new Farm!"}		
+			redirect_to farm_details_path, flash:{success: "Added new Farm!"}		
 		else
 			render 'new'
 		end
 		
 	end
 
-	def edit
-		@title = "Edit Farm Details"
+	def edit_selected
+	   @title = "Edit Farm Details"
+	   #riase params.inspect
+	   if params[:farm_id].nil?
+	   	redirect_to farm_details_path, flash: {notice: "Please select a farm to update!"}
+	   else
+	   	@farm_details = FarmDetail.find(params[:farm_id])
+		end
 	end
-
-	def update
-		
+	  
+	def update_selected
+		@farm_details = FarmDetail.find(params[:farm_id])
+		# raise @farm_details.inspect
+	   if @farm_details.update_attributes(params[:farm_detail])
+			redirect_to farm_details_path, flash: {success: "Farm updated!"}
+		else
+			render 'edit_selected'
+		end
 	end
 
 	def destroy

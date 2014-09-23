@@ -1,9 +1,43 @@
 <div id="farmDetailsHome">
 <h2>Farm Details</h2>
-<p>Here you can maintain yor farm details..</p>
-	<ul>
-		<li><%= link_to "<button>Add</button>".html_safe, addfarm_path %></li>
-		<li><%= button_to "Update", "#"%></li>
-		<li><%= button_to "Delete", "#"%></li>
-	</ul>
+<%= link_to "<button>Add Farm Details</button>".html_safe, addfarm_path %>
+</br></br>
+<% if !@farm_details.blank? %>
+	<div>
+	<%= form_tag(edit_selected_farm_detail_path, method:'post') do %>
+		<table>
+		  <thead>
+		    <tr>
+		    	<th></th>
+		      <th>Area</th>
+		      <th>Description</th>
+		      <th>Address</th>
+		      <th>City</th>
+		      <th>State</th>
+		      <th>Country</th>
+		    </tr>
+		  </thead>
+		<tbody>
+		    <% for farm in @farm_details %>
+		    <tr>
+		      <td><%= radio_button_tag "farm_id", farm.id %></td>
+		      <td><%= farm.farm_area %></td>
+		      <td><%= farm.farm_description %></td>
+		      <td><%= farm.farm_address %></td>
+		      <td><%= farm.farm_city%></td>
+		      <td><%= farm.farm_state %></td>
+		      <td><%= farm.farm_country %></td>
+			</tr>
+		    <% end %>
+		  </tbody>
+		</table>
+		<div>
+			<ul>
+				<li><%= submit_tag "Edit Selected" %></li>
+				<li><%= button_to "Delete", "#"%></li>
+			</ul>
+		</div>
+	<% end %>
+	</div>
+	<% end %>	
 </div>
