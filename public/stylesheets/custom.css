@@ -115,6 +115,8 @@ body {
 }
 
 #debug{
+  position: relative;
+  color: black;
   width: 1000px;
   float: left;
   margin: 0 auto;
@@ -160,9 +162,6 @@ nav ul li a{
    padding: 0 5px;
    font-weight: bold;
    text-decoration: none;
-}
-nav ul li a:visited{
-   color: #906;
 }
 nav ul li a:hover{
    text-decoration: underline;
