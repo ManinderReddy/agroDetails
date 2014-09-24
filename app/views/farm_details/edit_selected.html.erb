@@ -1,5 +1,6 @@
-<h3>Edit details goes here....</h3>
-<%= form_for(@farm_details, :url => update_selected_farm_detail_path, :html => { :method => :put }) do |fields| %>
+<div id="editFarm">
+<h2>Edit Farm Details</h2>
+<%= form_for(@farm_details, :url => update_selected_farm_details_path, :html => { :method => :put }) do |fields| %>
 <%= hidden_field_tag "farm_id", @farm_details.id %>
 <%= render "newFarmFields", f:fields%>
 <div class="button_align">
@@ -9,3 +10,4 @@
 		</ul>
 	</div>
 <% end%>
+</div>

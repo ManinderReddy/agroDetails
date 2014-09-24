@@ -14,7 +14,7 @@ before_filter :authenticate
 	def create
 		@newFarm = current_user.farm_details.build(params[:farm_detail])
 		if @newFarm.save
-			redirect_to farm_details_path, flash:{success: "Added new Farm!"}		
+			redirect_to farm_details_path, flash:{success: "Added a new Farm!"}		
 		else
 			render 'new'
 		end
@@ -28,6 +28,11 @@ before_filter :authenticate
 	   	redirect_to farm_details_path, flash: {notice: "Please select a farm to update!"}
 	   else
 	   	@farm_details = FarmDetail.find(params[:farm_id])
+	   	if params[:commit] == "Delete"
+	   		@farm = FarmDetail.find(params[:farm_id])
+				@farm.destroy()
+				redirect_to farm_details_path, flash: {success: "Deleted Farm!"} 
+	   	end	   		
 		end
 	end
 	  
@@ -42,7 +47,7 @@ before_filter :authenticate
 	end
 
 	def destroy
-
+		
 	end
 
 

@@ -204,17 +204,18 @@ h2.sideHeading {
 }
 /*button style*/
 .submit_button {
+  border: none;
   border-radius: 5px;
   outline: 0;
   -moz-outline-style: none;
 }
 
 .submit_button {
+  font-family:  'Helvetica Neue', Arial, Sans-Serif;
   background: #e74c3c;
-  border: none;
   color: white;
-  font-size: 18px;
-  font-weight: 200;
+  font-size: 16px;
+  font-weight: 150;
   cursor: pointer;
   transition: box-shadow .4s ease;
 }
@@ -238,9 +239,17 @@ h2.sideHeading {
   height: 40px;
 }
 
-#editProfile .submit_button,
-#addFarmDetails .submit_button{
-  color: white;
+#editProfile .submit_button {  
+  color: white;  
+  padding: 3px;
+}
+
+#addFarmDetails .submit_button {
+  color: white;  
+  padding: 3px;
+}
+#editFarm .submit_button{
+  color: white;  
   padding: 3px;
 }
 
