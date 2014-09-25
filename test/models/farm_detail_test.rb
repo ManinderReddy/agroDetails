@@ -11,7 +11,6 @@
 #  updated_at       :datetime
 #  farm_city        :string(255)
 #  farm_state       :string(255)
-#  farm_country     :string(255)
 #
 
 require 'test_helper'
