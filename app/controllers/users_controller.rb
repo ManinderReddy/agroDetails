@@ -5,6 +5,7 @@ before_filter :correct_user, only: [:show, :edit, :update]
 	def index
 		redirect_to user_path(current_user)
 	end
+	
 	def new
 		@user = User.new
 		@title = "Sign Up"		

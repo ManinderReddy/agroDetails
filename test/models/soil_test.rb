@@ -3,6 +3,7 @@
 # Table name: soils
 #
 #  id                 :integer          not null, primary key
+#  farm_detail_id     :integer
 #  soil_type          :string(255)
 #  soil_texture       :string(255)
 #  water_availability :string(255)
@@ -12,7 +13,6 @@
 #  year_of_details    :integer
 #  created_at         :datetime
 #  updated_at         :datetime
-#  farm_id            :integer
 #
 
 require 'test_helper'

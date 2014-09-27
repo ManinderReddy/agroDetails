@@ -28,10 +28,18 @@ before_filter :authenticate
 	   	redirect_to farm_details_path, flash: {notice: "Please select a farm to update!"}
 	   else
 	   	@farm_details = FarmDetail.find(params[:farm_id])
+	   	#Find the below methods in farm details helper
+	   	clear_selected_farm
+
+	   	hold_selected_farm(@farm_details)
+
 	   	if params[:commit] == "Delete"
 	   		@farm = FarmDetail.find(params[:farm_id])
 				@farm.destroy()
 				redirect_to farm_details_path, flash: {success: "Deleted Farm!"} 
+	   	elsif params[:commit] == "View Soil"
+	   		logger.debug selected_farm.inspect
+	   		redirect_to soils_path
 	   	end	   		
 		end
 	end
@@ -45,10 +53,5 @@ before_filter :authenticate
 			render 'edit_selected'
 		end
 	end
-
-	def destroy
-		
-	end
-
 
 end

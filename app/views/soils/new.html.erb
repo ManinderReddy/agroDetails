@@ -1,0 +1,12 @@
+<div id="addSoilDetails">
+	<h2 class="sideHeading">Soil Details</h2>
+	<%= form_for(@newsoil) do |fields|%>
+		<%= render "newSoilFields", f:fields%>
+		<div class="button_align">
+			<ul>
+				<li><%= fields.submit "Submit", class: 'submit_button' %></li>
+				<li><%= link_to "Cancel", :back, class: 'submit_button' %></li>
+			</ul>
+		</div>	
+	<% end%>
+</div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140925062113) do
+ActiveRecord::Schema.define(version: 20140925194048) do
 
   create_table "farm_details", force: true do |t|
     t.integer  "user_id"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20140925062113) do
   add_index "farm_details", ["user_id"], name: "index_farm_details_on_user_id"
 
   create_table "soils", force: true do |t|
+    t.integer  "farm_detail_id"
     t.string   "soil_type"
     t.string   "soil_texture"
     t.string   "water_availability"
@@ -36,7 +37,6 @@ ActiveRecord::Schema.define(version: 20140925062113) do
     t.integer  "year_of_details"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "farm_id"
   end
 
   create_table "users", force: true do |t|

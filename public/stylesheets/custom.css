@@ -168,7 +168,7 @@ nav ul li a:hover{
 }
 
 
-/*Signup button styling*/
+
 h2.sideHeading {
   text-align: center;
   font-weight: 200;
@@ -176,6 +176,8 @@ h2.sideHeading {
   margin-top: 7px;
   color: #34495e;
 }
+
+/*Signup button styling*/
 #homePage #signup_button{
   width: 30%;
   margin-left: auto;
@@ -249,6 +251,11 @@ h2.sideHeading {
   padding: 3px;
 }
 #editFarm .submit_button{
+  color: white;  
+  padding: 3px;
+}
+
+#addSoilDetails .submit_button{
   color: white;  
   padding: 3px;
 }

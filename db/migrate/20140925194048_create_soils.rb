@@ -1,6 +1,7 @@
 class CreateSoils < ActiveRecord::Migration
   def change
     create_table :soils do |t|
+      t.integer :farm_detail_id
       t.string :soil_type
       t.string :soil_texture
       t.string :water_availability
@@ -8,7 +9,6 @@ class CreateSoils < ActiveRecord::Migration
       t.string :soil_biota
       t.string :season
       t.integer :year_of_details
-
 
       t.timestamps
     end

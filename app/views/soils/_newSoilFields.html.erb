@@ -1,0 +1,40 @@
+<%= render "shared/error_messages", object: f.object %>
+<table class="tableDetails">
+	<tr>
+		<td class="field">
+		<div><%= f.label :soil_type, "Type of Soil" %></div>
+		<div><%=f.select :soil_type, options_for_select(SOILTYPES), prompt: "--select--" %></div>
+		</td>
+		<td class="field">
+			<div><%= f.label :soil_texture, "Texture of Soil" %></div>
+			<div><%= f.select :soil_texture, options_for_select(SOILTEXTURES), prompt: "--select--" %></div>
+		</td>
+	</tr>
+	<tr>
+		<td class="field">
+			<div><%= f.label :water_availability, "Water Availability" %></div>
+			<div><%= f.select :water_availability,  options_for_select(QUANTITY), prompt: "--select--" %></div>
+		</td>
+		<td class="field">
+			<div><%= f.label :soil_ph, "Soil pH level" %></div>
+			<div><%= f.select :soil_ph, options_for_select(SOIL_PH), prompt: "--select--" %></div>
+		</td>
+	</tr>
+	<tr>
+		<td class="field">
+			<div><%= f.label :soil_biota, "Contains high amount of" %></div>
+			<div><%= f.select :soil_biota, options_for_select(SOIL_BIOTA), prompt: "--select--" %></div>
+		</td>
+	</tr>
+	<tr>
+		<td class="field">
+			<div><%= f.label :season, "Which season?" %></div>
+			<div><%= f.select :season, options_for_select(SEASON), prompt: "--select--" %></div>
+		</td>
+		<td class="field">
+			<div><%= f.label :year_of_details, "Which year?" %></div>
+			<div><%= f.select :year_of_details, options_for_select(2010..2099) %></div>
+		</td>
+	</tr>
+</table>
+

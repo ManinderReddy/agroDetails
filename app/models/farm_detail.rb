@@ -22,9 +22,16 @@ class FarmDetail < ActiveRecord::Base
 
 	belongs_to :user
 
+	has_many :soils
+
 	attr_accessible :farm_area, :farm_address, :farm_description
 
 	# default_scope order: "farm_details.created_at DESC"
+
+	def self.fetch_farm(cookie_farm_id)
+		farm = FarmDetail.find_by_id(cookie_farm_id)
+		(farm) ? farm : nil
+	end
 
 
 end
