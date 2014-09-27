@@ -35,7 +35,7 @@ module SessionsHelper
 
    def deny_access
       store_path
-      redirect_to signin_path, flash: {notice: "Login to view your profile..!!"}
+      redirect_to signin_path, flash: {notice: "Please login..!!"}
    end
 
    def redirect_back_or_user_path(default)

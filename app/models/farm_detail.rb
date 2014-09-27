@@ -28,8 +28,8 @@ class FarmDetail < ActiveRecord::Base
 
 	# default_scope order: "farm_details.created_at DESC"
 
-	def self.fetch_farm(cookie_farm_id)
-		farm = FarmDetail.find_by_id(cookie_farm_id)
+	def self.fetch_farm(farm_id)
+		farm = FarmDetail.find_by_id(farm_id)
 		(farm) ? farm : nil
 	end
 
