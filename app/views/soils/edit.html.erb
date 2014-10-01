@@ -1,7 +1,7 @@
 <div id="editSoil">
-	<h2>Update Soil Details</h2>
+	<h2 class="sideHeading">Update Soil Details</h2>
 	<%= form_for @soil do |fields| %>
-	  	<%= render "newSoilFields", f:fields %>
+	  	<%= render "editSoilFields", f:fields %>
 	  	<div class="button_align">
 			<ul>
 				<li><%= fields.submit "Submit", class: 'submit_button' %></li>

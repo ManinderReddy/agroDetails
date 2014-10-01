@@ -1,5 +1,5 @@
 <div id="soilDetailsHome">
-	<h2>Soil Details</h2>
+	<h2 class="sideHeading">Soil Details</h2>
 	<%= form_for :soils, url: {action: "search"}, method:'post' do |f| %>
 		<% farm_names = current_user.farm_details.all.map {|p|  p.farm_name }  %>
 		<%= f.label "Select Farm" %><br/>
