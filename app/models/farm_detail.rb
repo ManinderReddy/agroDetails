@@ -11,11 +11,14 @@
 #  updated_at       :datetime
 #  farm_city        :string(255)
 #  farm_state       :string(255)
+#  farm_name        :string(255)
 #
 
 class FarmDetail < ActiveRecord::Base
 
 	validates :user_id, presence: true
+	validates :farm_name, presence: true,
+								 uniqueness:{case_sensitive: true}
 	validates :farm_area, presence: true
 	validates :farm_address, presence: true,
 									length: {maximum: 250}
@@ -24,7 +27,7 @@ class FarmDetail < ActiveRecord::Base
 
 	has_many :soils
 
-	attr_accessible :farm_area, :farm_address, :farm_description
+	attr_accessible :farm_area, :farm_address, :farm_description, :farm_name
 
 	# default_scope order: "farm_details.created_at DESC"
 

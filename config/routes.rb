@@ -3,12 +3,15 @@ Rails.application.routes.draw do
   resources :users, except: [:destroy]
   resources :sessions, only: [:create, :new, :destroy]
 
-  resources :farm_details, only:[:index, :new, :create] do
+  resources :farm_details, except: [:show, :edit, :update, :destroy] do
       post 'edit_selected' , on: :collection
       put 'update_selected', on: :collection
   end
 
-  resources :soils
+  resources :soils, except: [:show] do
+    get 'home', on: :collection
+    post 'search', on: :collection
+  end
 
   # resource :farm_detail do
   #   collection do
@@ -25,9 +28,7 @@ Rails.application.routes.draw do
   match '/signup',        to: 'users#new',        :via => [:get]
   match '/signin',        to: 'sessions#new',     :via => [:get]
   match '/signout',       to: 'sessions#destroy', :via => [:get]
-  match '/farmdetails',   to: 'farm_details#index',:via => [:get]
-  match '/addfarm',       to: 'farm_details#new', :via => [:get]
-  match '/addsoil',       to: 'soils#new',        :via => [:get]
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

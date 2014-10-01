@@ -2,8 +2,12 @@
 <table class="tableDetails">
 	<tr>
 		<td class="field">
-		<div><%= f.label :farm_area, "Area" %></div>
-		<div><%=f.number_field :farm_area, step: 0.1%></div>
+			<div><%= f.label :farm_name, "Name the Farm" %></div>
+			<div><%= f.text_field :farm_name %></div>
+		</td>
+		<td class="field">
+			<div><%= f.label :farm_area, "Area" %></div>
+			<div><%=f.number_field :farm_area, step: 0.1%></div>
 		</td>
 	</tr>
 	<tr>

@@ -11,6 +11,7 @@
 #  updated_at       :datetime
 #  farm_city        :string(255)
 #  farm_state       :string(255)
+#  farm_name        :string(255)
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

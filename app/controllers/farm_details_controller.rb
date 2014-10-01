@@ -23,29 +23,21 @@ before_filter :authenticate
 
 	def edit_selected
 	   @title = "Edit Farm Details"
-	   #riase params.inspect
+
 	   if params[:farm_id].nil?
 	   	redirect_to farm_details_path, flash: {notice: "Please select a farm to update!"}
 	   else
 	   	@farm_details = FarmDetail.find(params[:farm_id])
-	   	#Find the below methods in farm details helper
-	   	# clear_selected_farm
-
-	   	# hold_selected_farm(@farm_details)
-
 	   	if params[:commit] == "Delete"
 	   		@farm = FarmDetail.find(params[:farm_id])
 				@farm.destroy()
 				redirect_to farm_details_path, flash: {success: "Deleted Farm!"} 
-	   	elsif params[:commit] == "View Soil"
-	   		redirect_to soils_path(farm_id: @farm_details.id)
 	   	end	   		
 		end
 	end
 	  
 	def update_selected
 		@farm_details = FarmDetail.find(params[:farm_id])
-		# raise @farm_details.inspect
 	   if @farm_details.update_attributes(params[:farm_detail])
 			redirect_to farm_details_path, flash: {success: "Farm updated!"}
 		else

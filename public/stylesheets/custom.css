@@ -130,11 +130,6 @@ body {
   display: inline-block;
 }
 
-textarea.message_area {
-  width: 300px;
-  height: 100px;
-}
-
 /*Links*/
 
 a{
@@ -216,7 +211,7 @@ h2.sideHeading {
   font-family:  'Helvetica Neue', Arial, Sans-Serif;
   background: #e74c3c;
   color: white;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 150;
   cursor: pointer;
   transition: box-shadow .4s ease;
@@ -250,15 +245,19 @@ h2.sideHeading {
   color: white;  
   padding: 3px;
 }
-#editFarm .submit_button{
+#editFarm .submit_button {
   color: white;  
   padding: 3px;
 }
 
-#addSoilDetails .submit_button{
+#addSoilDetails .submit_button,
+#editSoil .submit_button,
+#soilDetailsHome .submit_button {
   color: white;  
   padding: 3px;
 }
+
+
 
 .submit_button:hover {
   box-shadow: 1px 1px 5px #555;
@@ -299,11 +298,6 @@ td label{
   font-size: 14px;
   font-weight: normal;
 }
-td label{
-  font-family: Verdana, Arial, Helvetica, sans-serif;
-  font-size: 14px;
-  font-weight: normal;
-}
 
 table tr.showProfileValues td{
   border-radius: 5px;
@@ -316,7 +310,10 @@ table tr.showProfileValues td{
 }
 
 table.tableDetails td input[type="text"],
-table.tableDetails td input[type="password"]{
+table.tableDetails td input[type="password"],
+table.tableDetails td input[type="number"],
+table.tableDetails td select,
+table.tableDetails td textarea {
   width: 60%;
   margin-left: 1%;
   margin-bottom: 7px;
@@ -329,8 +326,31 @@ table.tableDetails td input[type="password"]{
   font-size: 14px;
 }
 
+table.tableDetails td textarea {
+  width: 300px;
+  height: 100px;
+  resize: none
+}
+
+#soilDetailsHome select {
+  width: 40%;
+  margin-left: 1%;
+  margin-bottom: 7px;
+  height: 25px;
+  border-radius: 5px;
+  outline: 0;
+  -moz-outline-style: none;
+  border: 1px solid #bbb;
+  padding: 0 0 0 10px;
+  font-size: 14px;
+}
+
 table.tableDetails td input[type="text"]:focus,
-table.tableDetails td input[type="password"]:focus{
+table.tableDetails td input[type="password"]:focus,
+table.tableDetails td input[type="number"]:focus,
+table.tableDetails td select:focus,
+table.tableDetails td textarea:focus,
+#soilDetailsHome select:focus {
   border: 1px solid #3498db;
 }
 
