@@ -13,7 +13,8 @@
 body {
     font-family:  'Helvetica Neue', Arial, Sans-Serif;
     font-size: 14px;
-    color:#fff
+    color:#fff;
+    background-color: #ecf0f1;
 }
 
 /*Header*/
@@ -22,9 +23,9 @@ body {
     width: 1000px;
     background: #2B3840;
     /*border-radius: 10px;*/
-    border: 1px solid #eb521f;
-    margin: 5px;
+    border: 1px solid;
     float: left;
+    margin-top: 3px;
 }
 
 #header img{
@@ -43,55 +44,25 @@ body {
 
 #navigation {
     float: left;
-    height: 40px;
+    height: 47px;
     width: 1000px;
     background: #2B3840;
-    /*border-radius: 10px;*/
-    border: 1px solid #ebb81f;
-    margin: 5px;
+    border: 1px solid ;
     text-align: left;
 }
 
-#leftcolumn {
-    min-height: 300px;
-    background: #95a5a6;
-    width: 200px;
-    float: left;
-    /*border-radius: 10px;*/
-    border: 1px solid #fff;
-    margin: 5px;
-}
-
-/*sidebar detail*/
-/*edit color of the links*/
-#leftcolumn ul{
-   padding: 0;
-   margin: 0;
-}
-
-#leftcolumn ul li{
-  list-style-type: none;
-  padding: 0.2em;
-  color: purple;
-  border: 1px solid #fff;
-  font-weight: bold;
-}
-
-#leftcolumn ul li a:visited{
-   color: inherit;
-}
-
-#leftcolumn ul li a:hover{
-   text-decoration: none;
+#sub-nav {
+width: 40%;
+float: right;
 }
 
 #content{
     min-height: 300px;
     float: left;
     background: #ecf0f1;
-    width: 750px;
+    width: 1000px;
     color: #333;
-    margin: 5px;
+    border: 1px solid;
 }
 
 #content h1{
@@ -105,8 +76,7 @@ body {
     background: #2B3840;
     clear: both;
     /*border-radius: 10px;*/
-    border: 1px solid #1feb52;
-    margin: 5px;
+    border: 1px solid;
     text-align: center;
 }
 
@@ -139,24 +109,31 @@ a{
 
 /*Navigation style*/
 nav{
-   float: right;
-   padding: 0 0.7em;
-   white-space: nowrap;
+  color: #3399CC;
+  float: right;
+  padding: 0 0.7em;
+  white-space: nowrap;
 }
+
 nav ul{
-   padding: 0;
-   padding-top: 0.5em;
-   margin: 0;
+  margin: 0;
+  padding: 0;
+  padding-top: 12px;
+  line-height: 100%;
+  font: normal 14px Arial, Helvetica, sans-serif;
 }
+
 nav ul li{
    list-style-type: none;
    display: inline-block;
    padding: 0.2em;
 }
 nav ul li a{
-   padding: 0 5px;
-   font-weight: bold;
-   text-decoration: none;
+  padding: 0 5px;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 14px;
+  color: #3399CC;
 }
 nav ul li a:hover{
    text-decoration: underline;
@@ -236,28 +213,20 @@ h2.sideHeading {
   height: 40px;
 }
 
-#editProfile .submit_button {  
-  color: white;  
-  padding: 3px;
-}
-
-#addFarmDetails .submit_button {
-  color: white;  
-  padding: 3px;
-}
-#editFarm .submit_button {
+#editProfile .submit_button,
+#editFarm .submit_button,
+#addFarmDetails .submit_button {  
   color: white;  
   padding: 3px;
 }
 
 #addSoilDetails .submit_button,
 #editSoil .submit_button,
-#soilDetailsHome .submit_button {
+#soilDetailsHome .submit_button,
+#addCropDetails .submit_button{
   color: white;  
   padding: 3px;
 }
-
-
 
 .submit_button:hover {
   box-shadow: 1px 1px 5px #555;
@@ -300,18 +269,19 @@ td label{
 }
 
 table tr.showProfileValues td{
-  border-radius: 5px;
+  /*border-radius: 5px;*/
   height: 35px;
   outline: 0;
-  -moz-outline-style: none;
+  /*-moz-outline-style: none;
   border: 1px solid #bbb;
-  padding: 0 0 0 10px;
+  padding: 0 0 0 10px;*/
   font-size: 14px;
 }
 
 table.tableDetails td input[type="text"],
 table.tableDetails td input[type="password"],
 table.tableDetails td input[type="number"],
+table.tableDetails td input[type="date"],
 table.tableDetails td select,
 table.tableDetails td textarea {
   width: 60%;
@@ -348,6 +318,7 @@ table.tableDetails td textarea {
 table.tableDetails td input[type="text"]:focus,
 table.tableDetails td input[type="password"]:focus,
 table.tableDetails td input[type="number"]:focus,
+table.tableDetails td input[type="date"]:focus,
 table.tableDetails td select:focus,
 table.tableDetails td textarea:focus,
 #soilDetailsHome select:focus {
@@ -355,7 +326,7 @@ table.tableDetails td textarea:focus,
 }
 
 
-div.actions{
+/*div.actions{
   margin-left: auto;
   margin-right: auto;
   display: block;
@@ -367,7 +338,7 @@ div.actions{
   font-weight: bold;
   line-height: 1;
 }
-
+*/
 /*Error messages*/
 .error_explanation{
    width: 400px;

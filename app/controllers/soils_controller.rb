@@ -9,7 +9,7 @@ before_filter :validate_farm, only: [:new]
   end
 
   def new
-  	@title = "Add Soil Details"
+  	@title = "New Soil Details"
     @newsoil = Soil.new    
   end
 

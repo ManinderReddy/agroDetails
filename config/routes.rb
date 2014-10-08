@@ -13,6 +13,10 @@ Rails.application.routes.draw do
     post 'search', on: :collection
   end
 
+  resources :crops, except: [:show] do
+    get 'home', on: :collection
+    post 'search', on: :collection
+  end
   # resource :farm_detail do
   #   collection do
   #     get 'edit_selected'

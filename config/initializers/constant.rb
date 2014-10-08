@@ -11,3 +11,5 @@ SOIL_PH = ['-1 to 5.5', '5.5 to 7', '7 to 14']
 SOIL_BIOTA = ['Earthworm', 'Roundworms', 'Bacteria', 'Fungi', 'Cattle grazing']
 
 SEASON = ['Spring', 'Summer', 'Fall']
+
+CROPNAMES = ['Cotton', 'Paddy', 'Wheat', 'Sugarcane', 'Corn']

@@ -52,7 +52,7 @@ module FarmDetailsHelper
    private
    
       def get_farm_using_token
-         FarmDetail.fetch_farm(farm_token)
+         FarmDetail.search(farm_token)
       end
    
       def farm_token

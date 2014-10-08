@@ -28,11 +28,13 @@ class FarmDetail < ActiveRecord::Base
 
 	has_many :soils
 
+	has_many :crops
+
 	attr_accessible :farm_area, :farm_address, :farm_description, :farm_name, :soil_type
 
 	# default_scope order: "farm_details.created_at DESC"
 
-	def self.fetch_farm(farm_id)
+	def self.search(farm_id)
 		farm = FarmDetail.find_by_id(farm_id)
 		(farm) ? farm : nil
 	end

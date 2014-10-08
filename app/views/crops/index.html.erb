@@ -1,0 +1,31 @@
+<div id="cropDetailsHome">
+	<h2 class="sideHeading">Crop Details</h2>
+	<%= form_tag crops_path, method: 'get' do %>
+		<% @farm= current_user.farm_details %>
+		<%= select_tag :search, options_for_select(@farm.collect{ |u| [u.farm_name, u.id] }), prompt: 'Select Farm' %><br/>
+		<%= submit_tag "Submit", name: nil ,class: 'submit_button' %>
+	<% end %>
+	<% if !params[:search].blank?  %>
+		<%= link_to "<button>Add Crop Details</button>".html_safe, new_crop_path %>
+	<% end %>
+	<% if !@crops.blank? %>
+		<table>
+			<thead>
+				<th></th>
+				<th>Crop Name</th>
+				<th>Acarage</th>
+				<th>Season</th>
+			</thead>
+			<tbody>
+				<% for crop in @crops %>
+					<tr>
+					<td><% radio_button_tag :crop_id, crop.id %></td>
+					<td><%= crop.crop_name %></td>
+					<td><%= crop.crop_acarage %></td>
+					<td><%= crop.season  %></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	<% end %>
+</div>

@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141003052842) do
+ActiveRecord::Schema.define(version: 20141004132441) do
+
+  create_table "crops", force: true do |t|
+    t.string   "crop_name"
+    t.integer  "crop_acarage"
+    t.string   "season"
+    t.date     "from_date"
+    t.date     "to_date"
+    t.integer  "expected_yeild"
+    t.integer  "actual_yeild"
+    t.text     "Other_details"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "farm_detail_id"
+  end
 
   create_table "farm_details", force: true do |t|
     t.integer  "user_id"
