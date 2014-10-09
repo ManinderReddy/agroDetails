@@ -1,15 +1,19 @@
 class CropsController < ApplicationController
+before_filter :authenticate
 
 	def index
 	  	@title = "Crop Details"
-	  	@farm= FarmDetail.search(params[:search])
-	  	logger.debug params
-	 	if !@farm.nil?
-	  		hold_selected_farm(@farm)
-	  		@crops=@farm.crops
+	  	if !params[:search].blank?
+		  	@farm= FarmDetail.search(params[:search])
+		 	if !@farm.nil?
+		  		hold_selected_farm(@farm)
+		  		@crops=@farm.crops
+			else
+				@crops = nil
+			end
 		else
-			@crops = nil
-		end
+         flash.now[:notice] = "Please select a farm!"
+      end
 	end
 
 	def new
@@ -26,33 +30,28 @@ class CropsController < ApplicationController
 	  	end
 	end
 
-	def edit
-		
-	end
+   def edit_selected
+      @title = "Edit Crop"
+      if params[:crop_id].nil?
+         redirect_to crops_path(search: selected_farm.id), flash: {notice: "Please select a Crop to update!"}
+      else
+         @crop = Crop.find(params[:crop_id])
+         if params[:commit] == "Delete"
+            @crop.destroy()
+            redirect_to crops_path(search: selected_farm.id), flash: {success: "Deleted crop!"} 
+         end            
+      end
+   end
+     
+   def update_selected
+      @crop = Crop.find(params[:crop_id])
+      if @crop.update_attributes(params[:crop])
+         redirect_to crops_path(search: selected_farm.id), flash: {success: "Crop details updated!"}
+      else
+         render 'edit_selected'
+      end
+   end
 
-	def update
-		
-	end
-
-	def destroy
-		
-	end
-
-	def home
-		@title = "Crop Details"
-	end
-
-	def search
-	  	logger.debug params[:crops][:farm_name]
-	  	if params[:crops][:farm_name].blank?
-	   	flash.now[:notice] = "Select a Farm to view Crop details"
-	   	render 'home'
-	 	else
-	   	@farm = FarmDetail.find_by_farm_name(params[:crops][:farm_name])
-	   	hold_selected_farm(@farm)
-	  	 	redirect_to soils_path
-	  	end
-	end
 
 	private
 	   

@@ -93,8 +93,9 @@ float: right;
   clear: both;
 }
 
-#farmDetailsHome ul li{
+.editDel_buttons ul li{
   list-style-type: none;
+  float: left;
   padding: 0.2em;
   font-weight: bold;
   display: inline-block;

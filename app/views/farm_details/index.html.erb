@@ -1,5 +1,5 @@
 <div id="farmDetailsHome">
-<h2>Farm Details</h2>
+<h2 class="sideHeading">Farm Details</h2>
 <%= link_to "<button>Add Farm Details</button>".html_safe, new_farm_detail_path %>
 </br></br>
 <% if !@farm_details.blank? %>
@@ -33,7 +33,7 @@
 		    <% end %>
 		  </tbody>
 		</table>
-		<div>
+		<div class="editDel_buttons">
 			<ul>
 				<li><%= submit_tag "Edit" %></li>
 				<li><%= submit_tag "Delete", data: { confirm: "Are you sure?", title: "Delete Farm" } %></li>

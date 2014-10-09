@@ -1,0 +1,40 @@
+<%= render "shared/error_messages", object: f.object %>
+<table class="tableDetails">
+	<tr>
+		<td class="field">
+		<div><%= f.label :crop_name, "Crop Name" %></div>
+		<div><%=f.select :crop_name, options_for_select(CROPNAMES, selected: f.object.crop_name), prompt: "--select--" %></div>
+		</td>
+		<td class="field">
+			<div><%= f.label :crop_acarage, "Crop Acarage" %></div>
+			<div><%= f.number_field :crop_acarage, placeholder: "No.of Acres" %></div>
+		</td>
+	</tr>
+	<tr>
+		<td class="field">
+			<div><%= f.label :season, "Season" %></div>
+			<div><%= f.select :season, options_for_select(SEASON, selected: f.object.season), prompt: "--select--" %></div>
+		</td>
+	</tr>
+	<tr>
+		<td class="field">
+			<div><%= f.label :from_date, "Crop start date" %></div>
+			<div><%= f.date_field :from_date %></div>
+		</td>
+		<td class="field">
+			<div><%= f.label :to_date, "Crop end date" %></div>
+			<div><%= f.date_field :to_date %></div>
+		</td>
+	</tr>
+	<tr>
+		<td class="field">
+			<div><%= f.label :expected_yeild %></div>
+			<div><%= f.number_field :expected_yeild,:placeholder => "Enter value in tons" %></div>
+		</td>
+		<td class="field">
+			<div><%= f.label :actual_yeild %></div>
+			<div><%= f.number_field :actual_yeild, :placeholder => "Enter value in tons" %></div>
+		</td>
+	</tr>
+</table>
+

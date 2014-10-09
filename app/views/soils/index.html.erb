@@ -1,36 +1,56 @@
 <div id="soilDetailsIndex">
-<h2 class="sideHeading">Soil Details</h2>
-<%= link_to "<button>Add Soil Details</button>".html_safe, new_soil_path %>
-</br></br>
-<table class="tableDetails">
-	<thead>
-		<tr>
-			<th>Type of Soil</th>
-			<th>Soil Texture</th>
-			<th>Water Availability</th>
-			<th>Soil ph</th>
-			<th>Soil Biota</th>
-			<th>Season</th>
-			<th>Year of Details</th>
-			<th></th>
-			<th></th>
-		</tr>
-	</thead>
-	<% for soil in @soil_list %>
-	<tbody>
-		<tr>
-			<td class="field"><%= soil.soil_type %></td>
-			<td class="field"><%= soil.soil_texture %></td>
-			<td class="field"><%= soil.water_availability %></td>
-			<td class="field"><%= soil.soil_ph %></td>
-			<td class="field"><%= soil.soil_biota %></td>
-			<td class="field"><%= soil.season %></td>
-			<td class="field"><%= soil.year_of_details %></td>
-			<td><%= link_to "<button>Edit</button>".html_safe, edit_soil_path(soil) %></td>
-			<td><%= link_to "<button>Delete</button>".html_safe, soil, method: "delete", data:{confirm:'Are you sure?'} %></td>
-		</tr>
-	</tbody>
-<% end %>
-</table>
-	<%= link_to "<button>Back</button>".html_safe, home_soils_path%> 
+	<h2 class="sideHeading">Soil Details</h2>
+	<%= form_tag soils_path, method: 'get' do %>
+		<% @farm= current_user.farm_details %>
+		<%= select_tag :search, options_for_select(@farm.collect{ |u| [u.farm_name, u.id] },selected: params[:search]), prompt: 'Please select' %><br/>
+		<%= submit_tag "Submit", name: nil ,class: 'submit_button' %>
+	<% end %>
+
+	<% if !params[:search].blank?  %>
+		<%= link_to "<button>Add Soil Details</button>".html_safe, new_soil_path %>
+	</br></br>
+
+	<% if !@soil_list.blank? %>
+	<div>
+	<%= form_tag(edit_selected_soils_path, method:'get') do %>
+		<table>
+			<thead>
+				<tr>
+					<th></th>
+					<th>Type of Soil</th>
+					<th>Soil Texture</th>
+					<th>Water Availability</th>
+					<th>Soil ph</th>
+					<th>Soil Biota</th>
+					<th>Season</th>
+					<th>Year of Details</th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<% for soil in @soil_list %>
+				<tbody>
+					<tr>
+						<td><%= radio_button_tag :soil_id, soil.id %></td>
+						<td><%= soil.soil_type %></td>
+						<td><%= soil.soil_texture %></td>
+						<td><%= soil.water_availability %></td>
+						<td><%= soil.soil_ph %></td>
+						<td><%= soil.soil_biota %></td>
+						<td><%= soil.season %></td>
+						<td><%= soil.year_of_details %></td>
+					</tr>
+				</tbody>
+			<% end %>
+		</table>
+		<div class="editDel_buttons">
+			<ul>
+				<li><%= submit_tag "Edit", name: nil %></li>
+				<li><%= submit_tag "Delete", data: { confirm: "Are you sure?", title: "Delete Soil" } %></li>
+			</ul>
+		</div>
+	<% end %>
+	</div>
+	<% end %>
+	<% end %>
 </div>

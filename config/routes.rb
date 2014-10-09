@@ -9,13 +9,13 @@ Rails.application.routes.draw do
   end
 
   resources :soils, except: [:show] do
-    get 'home', on: :collection
-    post 'search', on: :collection
+    get 'edit_selected', on: :collection
+    put 'update_selected', on: :collection
   end
 
   resources :crops, except: [:show] do
-    get 'home', on: :collection
-    post 'search', on: :collection
+    get 'edit_selected', on: :collection
+    put 'update_selected', on: :collection
   end
   # resource :farm_detail do
   #   collection do
