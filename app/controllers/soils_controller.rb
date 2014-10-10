@@ -28,7 +28,7 @@ before_filter :validate_farm, only: [:new]
       @newsoil = selected_farm.soils.build(params[:soil])
     
   	   if @newsoil.save
-  		  redirect_to soils_path, flash: {success: "Added new soil details!"}
+  		  redirect_to soils_path(search: selected_farm.id), flash: {success: "Added new soil details!"}
   	   else
   		  render 'new'
   	   end
