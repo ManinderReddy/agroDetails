@@ -35,6 +35,8 @@ class Crop < ActiveRecord::Base
 
 	belongs_to :farm_detail
 
+	default_scope  { order(created_at: :desc) }
+	
 	def available_crop_area(farm)
 		@crops = farm.crops.where("to_date >= ?", Date.today)
 		if @crops.blank?

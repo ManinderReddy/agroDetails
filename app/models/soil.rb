@@ -30,4 +30,5 @@ class Soil < ActiveRecord::Base
 
 	belongs_to :farm_detail
 
+	default_scope  { order(created_at: :desc) }
 end

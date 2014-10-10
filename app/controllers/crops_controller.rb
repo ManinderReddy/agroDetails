@@ -57,9 +57,11 @@ before_filter :correct_farm_crop_map, only: [:edit_selected]
 	private
 	   
 	  	def correct_farm_crop_map
-	    	@crop = Crop.find(params[:crop_id])
-	    	@farm = @crop.farm_detail            
-	   	redirect_to home_crops_path unless selected_farm?(@farm)  
+	  		if !params[:crop_id].blank?
+	    		@crop = Crop.find(params[:crop_id])
+	    		@farm = @crop.farm_detail            
+	   		redirect_to home_crops_path unless selected_farm?(@farm)  
+	   	end
 	  	end
 
 end

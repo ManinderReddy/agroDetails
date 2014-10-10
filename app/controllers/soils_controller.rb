@@ -59,9 +59,11 @@ before_filter :validate_farm, only: [:new]
    private
     
       def correct_farm_soil_map
-         @soil = Soil.find(params[:soil_id])
-         @farm = @soil.farm_detail            
-         redirect_to home_soils_path unless selected_farm?(@farm)  
+         if !params[:soil_id].blank?
+            @soil = Soil.find(params[:soil_id])
+            @farm = @soil.farm_detail            
+            redirect_to home_soils_path unless selected_farm?(@farm) 
+         end
       end
 
       def validate_farm

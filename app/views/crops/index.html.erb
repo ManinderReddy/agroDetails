@@ -9,7 +9,7 @@
 	<% end %>
 	<% if !params[:search].blank?  %>
 		<%= link_to "<button>Add Crop Details</button>".html_safe, new_crop_path %>
-	
+	<br/><br/>
 	<% if !@crops.blank? %>
 	<div class="tableIndex">
 	<%= form_tag(edit_selected_crops_path, method:'get') do %>

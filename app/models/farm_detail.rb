@@ -26,13 +26,13 @@ class FarmDetail < ActiveRecord::Base
 
 	belongs_to :user
 
-	has_many :soils
+	has_many :soils, dependent: :destroy 
 
-	has_many :crops
+	has_many :crops, dependent: :destroy
 
 	attr_accessible :farm_area, :farm_address, :farm_description, :farm_name, :soil_type
 
-	# default_scope order: "farm_details.created_at DESC"
+	default_scope  { order(created_at: :desc) }
 
 	def self.search(farm_id)
 		farm = FarmDetail.find_by_id(farm_id)

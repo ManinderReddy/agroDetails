@@ -215,16 +215,12 @@ h2.sideHeading {
 #editProfile .submit_button,
 #editFarm .submit_button,
 #addFarmDetails .submit_button,
-#editCrop .submit_button {  
-  color: white;  
-  padding: 3px;
-}
-
+#editCrop .submit_button,
 #addSoilDetails .submit_button,
 #editSoil .submit_button,
 #soilDetailsHome .submit_button,
 #cropDetailsHome .submit_button,
-#addCropDetails .submit_button{
+#addCropDetails .submit_button {  
   color: white;  
   padding: 3px;
 }
@@ -270,12 +266,8 @@ td label{
 }
 
 table tr.showProfileValues td{
-  /*border-radius: 5px;*/
   height: 35px;
   outline: 0;
-  /*-moz-outline-style: none;
-  border: 1px solid #bbb;
-  padding: 0 0 0 10px;*/
   font-size: 14px;
 }
 
@@ -332,6 +324,17 @@ table.tableDetails td textarea:focus,
   text-align: center;
 }
 
+.searchField > .submit_button {
+  background: #3399CC;
+}
+
+.tableIndex table thead {
+  text-align: center;
+}
+
+.tableIndex table tbody tr td {
+  padding-left: 0.5em;
+}
 /*div.actions{
   margin-left: auto;
   margin-right: auto;
