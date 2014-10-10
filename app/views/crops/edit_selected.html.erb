@@ -2,6 +2,7 @@
 	<h2 class="sideHeading">Update Crop Details</h2>
 	<%= form_for(@crop, :url => update_selected_crops_path, :html => { :method => :put }) do |fields| %>
 		<%= hidden_field_tag :crop_id, @crop.id %>
+		<!--<%= fields.hidden_field :id %>-->
 		<%= render "editCropFields", f:fields %>
 		<div class="button_align">
 				<ul>

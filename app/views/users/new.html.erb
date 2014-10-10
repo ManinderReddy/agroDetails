@@ -1,9 +1,9 @@
 <div id="signUp">
 <h2 class="sideHeading">Sign Up</h2>
 <div class="form">
-<%= form_for(@user) do |fields|%>
+<%= form_for (@user)  do |fields|%>
 	<%= render "signupDetails", f: fields%>
 	<%= fields.submit "Create Account", class: 'submit_button'%>
-<% end%>
+<% end %>
 </div>
 </div>

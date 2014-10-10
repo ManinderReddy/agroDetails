@@ -4,16 +4,16 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create, :new, :destroy]
 
   resources :farm_details, except: [:show, :edit, :update, :destroy] do
-      post 'edit_selected' , on: :collection
+      get 'edit_selected' , on: :collection
       put 'update_selected', on: :collection
   end
 
-  resources :soils, except: [:show] do
+  resources :soils, except: [:show, :edit, :update, :destroy] do
     get 'edit_selected', on: :collection
     put 'update_selected', on: :collection
   end
 
-  resources :crops, except: [:show] do
+  resources :crops, except: [:show, :edit, :update, :destroy] do
     get 'edit_selected', on: :collection
     put 'update_selected', on: :collection
   end

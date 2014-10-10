@@ -34,27 +34,6 @@ before_filter :validate_farm, only: [:new]
   	   end
    end
 
-   # def edit
-   #    @title = "Edit Soil Details"
-   #    @soil = Soil.find(params[:id])
-   # end
-
-   # def update
-   #    @soil = Soil.find(params[:id])
-   #    if @soil.update_attributes(params[:soil])
-   #       redirect_to soils_path, flash: {success: "Successfully updated!"}
-   #    else
-   #       render 'edit'
-   #    end
-   # end
-
-   # def destroy
-   #    @soil = Soil.find(params[:id])
-   #    @soil.destroy()    
-   #    redirect_to soils_path, flash: {success: "Successfuly deleted!"}
-   # end
-
-
    def edit_selected
       @title = "Edit Soil"
       if params[:soil_id].nil?

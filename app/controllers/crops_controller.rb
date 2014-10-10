@@ -1,5 +1,6 @@
 class CropsController < ApplicationController
 before_filter :authenticate
+before_filter :correct_farm_crop_map, only: [:edit_selected]
 
 	def index
 	  	@title = "Crop Details"
@@ -17,13 +18,13 @@ before_filter :authenticate
 	end
 
 	def new
-		@newcrop = Crop.new
 		@title = "New Crop"
+		@crop = Crop.new		
 	end
 
 	def create
-		@newcrop = selected_farm.crops.build(params[:crop])
-	  	if @newcrop.save
+		@crop = selected_farm.crops.build(params[:crop])
+	  	if @crop.save
 	  		redirect_to crops_path(search: selected_farm.id), flash: {success: "Added new crop!"}
 	  	else
 	  		render 'new'
@@ -56,7 +57,7 @@ before_filter :authenticate
 	private
 	   
 	  	def correct_farm_crop_map
-	    	@crop = Crop.find(params[:id])
+	    	@crop = Crop.find(params[:crop_id])
 	    	@farm = @crop.farm_detail            
 	   	redirect_to home_crops_path unless selected_farm?(@farm)  
 	  	end

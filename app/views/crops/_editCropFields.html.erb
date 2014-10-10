@@ -7,7 +7,7 @@
 		</td>
 		<td class="field">
 			<div><%= f.label :crop_acarage, "Crop Acarage" %></div>
-			<div><%= f.number_field :crop_acarage, placeholder: "No.of Acres" %></div>
+			<div><%= f.number_field :crop_acarage, placeholder: "#{(@crop.available_crop_area(selected_farm)+@crop.crop_acarage_was)} acres is available" %></div>
 		</td>
 	</tr>
 	<tr>

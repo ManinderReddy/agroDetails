@@ -216,7 +216,8 @@ h2.sideHeading {
 
 #editProfile .submit_button,
 #editFarm .submit_button,
-#addFarmDetails .submit_button {  
+#addFarmDetails .submit_button,
+#editCrop .submit_button {  
   color: white;  
   padding: 3px;
 }
