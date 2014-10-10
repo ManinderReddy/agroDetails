@@ -3,7 +3,7 @@
 <%= link_to "<button>Add Farm Details</button>".html_safe, new_farm_detail_path %>
 </br></br>
 <% if !@farm_details.blank? %>
-	<div>
+	<div class="tableIndex">
 	<%= form_tag(edit_selected_farm_details_path, method:'get') do %>
 		<table>
 		  <thead>

@@ -2,14 +2,16 @@
 	<h2 class="sideHeading">Crop Details</h2>
 	<%= form_tag crops_path, method: 'get' do %>
 		<% @farm= current_user.farm_details %>
-		<%= select_tag :search, options_for_select(@farm.collect{ |u| [u.farm_name, u.id] },selected: params[:search]), prompt: 'Please select' %><br/>
-		<%= submit_tag "Submit", name: nil ,class: 'submit_button' %>
+		<div class="searchField">
+			<%= select_tag :search, options_for_select(@farm.collect{ |u| [u.farm_name, u.id] },selected: params[:search]), prompt: 'Please select' %>
+			<%= submit_tag "Search", name: nil ,class: 'submit_button' %>
+		</div>
 	<% end %>
 	<% if !params[:search].blank?  %>
 		<%= link_to "<button>Add Crop Details</button>".html_safe, new_crop_path %>
 	
 	<% if !@crops.blank? %>
-	<div>
+	<div class="tableIndex">
 	<%= form_tag(edit_selected_crops_path, method:'get') do %>
 		<table>
 			<thead>

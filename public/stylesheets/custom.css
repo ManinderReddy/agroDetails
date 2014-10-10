@@ -140,8 +140,6 @@ nav ul li a:hover{
    text-decoration: underline;
 }
 
-
-
 h2.sideHeading {
   text-align: center;
   font-weight: 200;
@@ -225,6 +223,7 @@ h2.sideHeading {
 #addSoilDetails .submit_button,
 #editSoil .submit_button,
 #soilDetailsHome .submit_button,
+#cropDetailsHome .submit_button,
 #addCropDetails .submit_button{
   color: white;  
   padding: 3px;
@@ -304,8 +303,9 @@ table.tableDetails td textarea {
   resize: none
 }
 
-#soilDetailsHome select {
-  width: 40%;
+#soilDetailsHome select,
+#cropDetailsHome select {
+  width: 20%;
   margin-left: 1%;
   margin-bottom: 7px;
   height: 25px;
@@ -323,10 +323,14 @@ table.tableDetails td input[type="number"]:focus,
 table.tableDetails td input[type="date"]:focus,
 table.tableDetails td select:focus,
 table.tableDetails td textarea:focus,
-#soilDetailsHome select:focus {
+#soilDetailsHome select:focus,
+#cropDetailsHome select:focus {
   border: 1px solid #3498db;
 }
 
+.searchField {
+  text-align: center;
+}
 
 /*div.actions{
   margin-left: auto;

@@ -1,9 +1,11 @@
-<div id="soilDetailsIndex">
+<div id="soilDetailsHome">
 	<h2 class="sideHeading">Soil Details</h2>
 	<%= form_tag soils_path, method: 'get' do %>
 		<% @farm= current_user.farm_details %>
-		<%= select_tag :search, options_for_select(@farm.collect{ |u| [u.farm_name, u.id] },selected: params[:search]), prompt: 'Please select' %><br/>
-		<%= submit_tag "Submit", name: nil ,class: 'submit_button' %>
+		<div class="searchField">
+			<%= select_tag :search, options_for_select(@farm.collect{ |u| [u.farm_name, u.id] },selected: params[:search]), prompt: 'Please select' %>
+			<%= submit_tag "Search", name: nil ,class: 'submit_button' %>
+		</div>
 	<% end %>
 
 	<% if !params[:search].blank?  %>
@@ -11,7 +13,7 @@
 	</br></br>
 
 	<% if !@soil_list.blank? %>
-	<div>
+	<div class="tableIndex">
 	<%= form_tag(edit_selected_soils_path, method:'get') do %>
 		<table>
 			<thead>

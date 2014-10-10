@@ -12,22 +12,6 @@
 	</tr>
 	<tr>
 		<td class="field">
-			<div><%= f.label :water_availability, "Water Availability" %></div>
-			<div><%= f.select :water_availability,  options_for_select(QUANTITY, selected: f.object.water_availability) %></div>
-		</td>
-		<td class="field">
-			<div><%= f.label :soil_ph, "Soil pH level" %></div>
-			<div><%= f.select :soil_ph, options_for_select(SOIL_PH, selected: f.object.soil_ph) %></div>
-		</td>
-	</tr>
-	<tr>
-		<td class="field">
-			<div><%= f.label :soil_biota, "Contains high amount of" %></div>
-			<div><%= f.select :soil_biota, options_for_select(SOIL_BIOTA, selected: f.object.soil_biota)%></div>
-		</td>
-	</tr>
-	<tr>
-		<td class="field">
 			<div><%= f.label :season, "Which season?" %></div>
 			<div><%= f.select :season, options_for_select(SEASON, selected: f.object.season) %></div>
 		</td>
@@ -36,5 +20,22 @@
 			<div><%= f.select :year_of_details, options_for_select(2010..2099, selected: f.object.year_of_details) %></div>
 		</td>
 	</tr>
+	<tr>
+		<td class="field">
+			<div><%= f.label :water_availability, "Water Availability" %></div>
+			<div><%= f.select :water_availability,  options_for_select(QUANTITY, selected: f.object.water_availability) %></div>
+		</td>
+	</tr>
+	<tr>
+		<td class="field">
+			<div><%= f.label :soil_ph, "Soil pH level" %></div>
+			<div><%= f.select :soil_ph, options_for_select(SOIL_PH, selected: f.object.soil_ph) %></div>
+		</td>
+		<td class="field">
+			<div><%= f.label :soil_biota, "Contains high amount of" %></div>
+			<div><%= f.select :soil_biota, options_for_select(SOIL_BIOTA, selected: f.object.soil_biota)%></div>
+		</td>
+	</tr>
+	
 </table>
 

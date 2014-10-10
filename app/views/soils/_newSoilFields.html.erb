@@ -2,8 +2,8 @@
 <table class="tableDetails">
 	<tr>
 		<td class="field">
-		<div><%= f.label :soil_type, "Type of Soil" %></div>
-		<div><%=f.select :soil_type, options_for_select(SOILTYPES), prompt: "--select--" %></div>
+			<div><%= f.label :soil_type, "Type of Soil" %></div>
+			<div><%=f.select :soil_type, options_for_select(SOILTYPES), prompt: "--select--" %></div>
 		</td>
 		<td class="field">
 			<div><%= f.label :soil_texture, "Texture of Soil" %></div>
@@ -31,8 +31,6 @@
 			<div><%= f.label :soil_ph, "Soil pH level" %></div>
 			<div><%= f.select :soil_ph, options_for_select(SOIL_PH), prompt: "--select--" %></div>
 		</td>
-	</tr>
-	<tr>
 		<td class="field">
 			<div><%= f.label :soil_biota, "Contains high amount of" %></div>
 			<div><%= f.select :soil_biota, options_for_select(SOIL_BIOTA), prompt: "--select--" %></div>
