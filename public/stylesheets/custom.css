@@ -296,7 +296,8 @@ table.tableDetails td textarea {
 }
 
 #soilDetailsHome select,
-#cropDetailsHome select {
+#cropDetailsHome select,
+#reports select {
   width: 20%;
   margin-left: 1%;
   margin-bottom: 7px;
@@ -316,7 +317,8 @@ table.tableDetails td input[type="date"]:focus,
 table.tableDetails td select:focus,
 table.tableDetails td textarea:focus,
 #soilDetailsHome select:focus,
-#cropDetailsHome select:focus {
+#cropDetailsHome select:focus,
+#reports select:focus {
   border: 1px solid #3498db;
 }
 
@@ -324,6 +326,19 @@ table.tableDetails td textarea:focus,
   text-align: center;
 }
 
+.searchField input[type="date"] {
+  height: 25px;
+  border-radius: 5px;
+  outline: 0;
+  -moz-outline-style: none;
+  border: 1px solid #bbb;
+  padding: 0 0 0 10px;
+  font-size: 14px;
+}
+
+.serachField input[type="date"]:focus {
+  border: 1px solid #3498db;
+}
 .searchField > .submit_button {
   background: #3399CC;
 }

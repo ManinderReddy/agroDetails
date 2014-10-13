@@ -1,0 +1,10 @@
+<div id="reports">
+	<h2 class="sideHeading">Reports</h2>
+	<%= form_tag reports_path, method:'get' do %>
+	<div class="searchField">
+			<%= select_tag :search, options_for_select(["Farms", "Soils", "Crops", "Fertilizers", "Full Report"],selected: params[:search]), prompt: 'Please select' %>
+			<%= submit_tag "Search", name: nil ,class: 'submit_button' %>
+		</div>
+	<% end %>
+	<%= link_to 'Export farm', farm_reports_path %>
+</div>

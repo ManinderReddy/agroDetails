@@ -17,13 +17,13 @@ Rails.application.routes.draw do
     get 'edit_selected', on: :collection
     put 'update_selected', on: :collection
   end
-  # resource :farm_detail do
-  #   collection do
-  #     get 'edit_selected'
-  #     put 'update_selected'
-  #   end
-  # end
 
+  resources :reports do
+    get 'farm', on: :collection
+    get 'crop', on: :collection
+    get 'soil', on: :collection
+  end
+  
   root to: "pages#home"
   
   match '/contact',       to: 'pages#contact',    :via => [:get]
