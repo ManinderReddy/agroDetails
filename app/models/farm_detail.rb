@@ -39,13 +39,20 @@ class FarmDetail < ActiveRecord::Base
 		(farm) ? farm : nil
 	end
 
-	def self.to_excel(farms_list, options = {})
-		farm_details_csv = CSV.generate(options) do |csv|
-	    	csv << ["Farm Name", "Farm Area", "Soil Type", "Description", "Farm Address", "Farm City", "Farm State"]
-	    	farms_list.each do |farm|
-	      	csv << [farm.farm_name, farm.farm_area, farm.soil_type,farm.farm_description, farm.farm_address, farm.farm_city, farm.farm_state ] 
-	      end  
-      end 
+	def self.create_csv_file(user,from_date,to_date)
+		@farm_details = user.farm_details.where("created_at between ? and ?", from_date,to_date)
+    	if !@farm_details.blank?
+    		file_path = "#{Rails.root}/tmp/farm_report.csv"
+    		CSV.open(file_path, "w+") do |csv|
+    			csv << ["Farm Name", "Farm Area", "Soil Type", "Description", "Farm Address", "Farm City", "Farm State"]
+    			@farm_details.each do |farm|
+      			csv << [farm.farm_name, farm.farm_area, farm.soil_type,farm.farm_description, farm.farm_address, farm.farm_city, farm.farm_state ]
+      		end
+      	end
+      end
+      (file_path) ? file_path : nil
 	end
 
 end
+
+	    	

@@ -1,4 +1,6 @@
 class ReportsController < ApplicationController
+# before_filter :delete_temp_files
+
 	def index
 		logger.debug params
 		case params[:search]
@@ -13,20 +15,28 @@ class ReportsController < ApplicationController
 		# when "Full Report"
 		# 	redirect_to full_report							
 		else
-			flash.now[:notice] = "Select to view Report!" if !params[:search].nil?
+			flash.now[:notice] = "Select to Report!" if !params[:search].nil?
 		end
 	end
 
 	def farm
 		if params[:from_date].present? && params[:to_date].present?
-	    	@farm_details = current_user.farm_details.where("created_at between ? and ?", params[:from_date], params[:to_date])
-	    	if !@farm_details.blank?
-		  		farm_details_csv = FarmDetail.to_excel(@farm_details)
-		  		send_data(farm_details_csv, type: 'text/csv', disposition: 'attachment', filename: 'Farm_Report.csv')
+			delete_report("farm")
+	    	farm_file_path = FarmDetail.create_csv_file(current_user,params[:from_date],params[:to_date])
+	    	if farm_file_path.present?
+	    		store_download_path(farm_file_path,"farm")
+		  		flash.now[:success] = "Report generated. Click Download!"
 		   else
 		   	flash.now[:notice] = "No records over selected duration!"
 		   end
+	   elsif (params[:download_report].present? && params[:download_report])
+	   	path = get_download_path("farm")
+	    	file = File.open(path, "rb")
+	    	contents = file.read
+	    	file.close
+	    	send_data(contents , :type => 'text/csv', :filename => 'farm_report.csv')
 	   else
+	   	delete_report("farm")
 	   	if params[:from_date].blank? && params[:to_date].blank?
 	   		flash.now[:notice] = "Select from and to date.."
 	   	elsif params[:from_date].blank?
@@ -39,15 +49,22 @@ class ReportsController < ApplicationController
 
 	def crop
 		if params[:from_date].present? && params[:to_date].present?
-	    	@crops = Crop.fetch_crops(current_user, params[:from_date], params[:to_date])
-	    	if !@crops.blank?
-	    		crop_details_csv = Crop.to_excel(@crops)  
-		      send_data(crop_details_csv, :type => 'text/csv', :filename => 'Crop_Report.csv')
-		      flash.now[:success] = "Successfully downloaded the report!"
+			delete_report("crop")
+	    	crop_file_path = Crop.create_csv_file(current_user,params[:from_date],params[:to_date])
+	    	if crop_file_path.present?
+	    		store_download_path(crop_file_path,"crop")
+		  		flash.now[:success] = "Report generated. Click Download!"
 		   else
 		   	flash.now[:notice] = "No records over selected duration!"
 		   end
+	   elsif (params[:download_report].present? && params[:download_report])
+	   	path = get_download_path("crop")
+	    	file = File.open(path, "rb")
+	    	contents = file.read
+	    	file.close
+	    	send_data(contents , :type => 'text/csv', :filename => 'crop_report.csv')
 	   else
+	   	delete_report("crop")
 	   	if params[:from_date].blank? && params[:to_date].blank?
 	   		flash.now[:notice] = "Select from and to date.."
 	   	elsif params[:from_date].blank?
@@ -60,15 +77,22 @@ class ReportsController < ApplicationController
 
 	def soil
 		if params[:from_date].present? && params[:to_date].present?
-	    	@soils = Soil.fetch_soils(current_user, params[:from_date], params[:to_date])
-	    	if !@soils.blank?
-		  		soil_details_csv = Soil.to_excel(@soils)
-		      send_data(soil_details_csv, :type => 'text/csv', :filename => 'Soil_Report.csv')
-		      flash.now[:success] = "Successfully downloaded the report!"
+	    	delete_report("soil")
+	    	soil_file_path = Soil.create_csv_file(current_user,params[:from_date],params[:to_date])
+	    	if soil_file_path.present?
+	    		store_download_path(soil_file_path,"soil")
+		  		flash.now[:success] = "Report generated. Click Download!"
 		   else
 		   	flash.now[:notice] = "No records over selected duration!"
 		   end
+	   elsif (params[:download_report].present? && params[:download_report])
+	   	path = get_download_path("soil")
+	    	file = File.open(path, "rb")
+	    	contents = file.read
+	    	file.close
+	    	send_data(contents , :type => 'text/csv', :filename => 'soil_report.csv')
 	   else
+	   	delete_report("soil")
 	   	if params[:from_date].blank? && params[:to_date].blank?
 	   		flash.now[:notice] = "Select from and to date.."
 	   	elsif params[:from_date].blank?
@@ -78,12 +102,15 @@ class ReportsController < ApplicationController
 	   	end
 	   end
 	end
+	
+ 	private
 
-	def download_report
-		
-	end
+ 	def delete_report(report_name)
+ 		file_path= get_download_path(report_name)
+ 		if (file_path.present? && File.exist?(file_path))
+ 			File.delete(file_path)
+ 			clear_download_path(report_name)
+ 		end
+ 	end
 
-	def email_report
-		
-	end
 end

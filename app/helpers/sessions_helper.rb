@@ -47,6 +47,44 @@ module SessionsHelper
       session[:return_to] = request.fullpath
    end
 
+   def store_download_path(path,report)
+      case report
+      when "farm"
+         session[:farm_report_path] = path
+      when "crop"
+         session[:crop_report_path] = path
+      when "soil"
+         session[:soil_report_path] = path
+      else
+         nil
+      end
+   end
+
+   def clear_download_path(report)
+      case report
+      when "farm"
+         session[:farm_report_path] = nil
+      when "crop"
+         session[:crop_report_path] = nil
+      when "soil"
+         session[:soil_report_path] = nil
+      else
+         nil
+      end
+   end
+
+   def get_download_path(report)
+      case report
+      when "farm"
+         session[:farm_report_path] || nil
+      when "crop"
+         session[:crop_report_path] || nil
+      when "soil"
+         session[:soil_report_path] || nil
+      else
+         nil
+      end
+   end
    private
    
       def get_user_using_remeber_token

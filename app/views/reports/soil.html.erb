@@ -9,5 +9,9 @@
 			<%= submit_tag "Download", name: nil ,class: 'submit_button' %>&nbsp&nbsp
 			<%= link_to "Back", reports_path, class: 'submit_button' %>
 		</div>
+		<% if get_download_path("soil").present? %>
+			<%= hidden_field_tag :download_report, true %>
+			<%= submit_tag "Download Report" %>
+		<% end %>
 	<% end %>
 </div>
