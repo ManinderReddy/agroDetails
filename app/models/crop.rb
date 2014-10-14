@@ -37,6 +37,22 @@ class Crop < ActiveRecord::Base
 
 	default_scope  { order(created_at: :desc) }
 	
+	def self.fetch_crops(user,from_date,to_date)
+		@crops = user.crops.where("crops.created_at between ? and ?", from_date,to_date)
+		(@crops.blank?) ? nil : @crops
+	end
+
+
+	def self.to_excel(crops_list, options = {})
+		crop_details_csv = CSV.generate(options) do |csv|
+	    	csv << ["Farm Name", "Farm Area", "Soil Type","Crop Name", "Acarage", "Season", "Farm Start Date", "Farm End Date", "Expected Yeild", "Actual Yeild", "Other Details"]
+	    	crops_list.each do |crop|
+	    		farm = crop.farm_detail
+	      	csv << [farm.farm_name, farm.farm_area, farm.soil_type, crop.crop_name, crop.crop_acarage, crop.season, crop.from_date, crop.to_date, crop.expected_yeild, crop.actual_yeild, crop.Other_details] 
+	      end  
+      end 
+	end
+
 	def available_crop_area(farm)
 		@crops = farm.crops.where("to_date >= ?", Date.today)
 		if @crops.blank?

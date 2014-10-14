@@ -2,6 +2,7 @@
 <html>
 <head>
   <title><%= title %></title>
+    <%= yield :page_head %>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag 'blueprint/screen', media: 'screen'%>
 	  <%= stylesheet_link_tag 'custom', media: 'screen'%>

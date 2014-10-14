@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">Farm Name</Data></Cell>
+        <Cell><Data ss:Type="String">Farm Area</Data></Cell>
+        <Cell><Data ss:Type="String">Soil Type</Data></Cell>
+        <Cell><Data ss:Type="String">Crop Name</Data></Cell>
+      </Row>
+    <% @crops.each do |crop| %>
+      <% farm = crop.farm_detail  %>
+      <Row>
+        <Cell><Data ss:Type="String"><%= farm.farm_name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= farm.farm_area %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= farm.soil_type %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= crop.crop_name %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

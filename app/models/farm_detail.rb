@@ -30,7 +30,7 @@ class FarmDetail < ActiveRecord::Base
 
 	has_many :crops, dependent: :destroy
 
-	attr_accessible :farm_area, :farm_address, :farm_description, :farm_name, :soil_type
+	attr_accessible :farm_area, :farm_address, :farm_description, :farm_name, :soil_type, :farm_city, :farm_state
 
 	default_scope  { order(created_at: :desc) }
 
@@ -39,5 +39,13 @@ class FarmDetail < ActiveRecord::Base
 		(farm) ? farm : nil
 	end
 
+	def self.to_excel(farms_list, options = {})
+		farm_details_csv = CSV.generate(options) do |csv|
+	    	csv << ["Farm Name", "Farm Area", "Soil Type", "Description", "Farm Address", "Farm City", "Farm State"]
+	    	farms_list.each do |farm|
+	      	csv << [farm.farm_name, farm.farm_area, farm.soil_type,farm.farm_description, farm.farm_address, farm.farm_city, farm.farm_state ] 
+	      end  
+      end 
+	end
 
 end

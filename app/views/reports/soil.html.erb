@@ -3,10 +3,11 @@
 	<%= form_tag soil_reports_path, method:'get' do %>
 	<div class="searchField">
 			<label>From</label>
-			<%= date_field_tag :from_date%>
+			<%= date_field_tag :from_date%>&nbsp&nbsp
 			<label>To</label>
 			<%= date_field_tag :to_date %><br/><br/>
-			<%= submit_tag "Download", name: nil ,class: 'submit_button' %>
+			<%= submit_tag "Download", name: nil ,class: 'submit_button' %>&nbsp&nbsp
+			<%= link_to "Back", reports_path, class: 'submit_button' %>
 		</div>
 	<% end %>
 </div>

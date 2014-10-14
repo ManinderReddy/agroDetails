@@ -31,4 +31,20 @@ class Soil < ActiveRecord::Base
 	belongs_to :farm_detail
 
 	default_scope  { order(created_at: :desc) }
+
+	def self.fetch_soils(user,from_date,to_date)
+		@soils = user.soils.where("soils.created_at between ? and ?", from_date,to_date)
+		(@soils.blank?) ? nil : @soils
+	end
+
+	def self.to_excel(soils_list, options = {})
+		soil_details_csv = CSV.generate(options) do |csv|
+	    	csv << ["Farm Name", "Soil Type","Soil Texture", "Water Availability", "Soil pH", "Soil is Rich in", "Season", "Year of Details"]
+	    	soils_list.each do |soil|
+	    		farm = soil.farm_detail
+	      	csv << [farm.farm_name, farm.soil_type, soil.soil_texture, soil.water_availability, soil.soil_ph, soil.soil_biota, soil.season,soil.year_of_details] 
+	      end  
+      end 
+	end
+
 end
