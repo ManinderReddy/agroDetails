@@ -20,30 +20,32 @@ class ReportsController < ApplicationController
 	end
 
 	def farm
-		if params[:from_date].present? && params[:to_date].present?
-			delete_report("farm")
-	    	farm_file_path = FarmDetail.create_csv_file(current_user,params[:from_date],params[:to_date])
-	    	if farm_file_path.present?
-	    		store_download_path(farm_file_path,"farm")
-		  		flash.now[:success] = "Report generated. Click Download!"
-		   else
-		   	flash.now[:notice] = "No records over selected duration!"
-		   end
-	   elsif (params[:download_report].present? && params[:download_report])
+		if params[:commit] == "Submit"
+			if params[:from_date].present? && params[:to_date].present?
+				delete_report("farm")
+		    	farm_file_path = FarmDetail.create_csv_file(current_user,params[:from_date],params[:to_date])
+		    	if farm_file_path.present?
+		    		store_download_path(farm_file_path,"farm")
+			  		flash.now[:success] = "Report generated. Click Download!"
+			   else
+			   	flash.now[:notice] = "No records over selected duration!"
+			   end
+			else
+		   	delete_report("farm")
+		   	if params[:from_date].blank? && params[:to_date].blank?
+		   		flash.now[:notice] = "Select from and to date.."
+		   	elsif params[:from_date].blank?
+		   		flash.now[:notice] = "Select from date.."
+		   	else
+		   		flash.now[:notice] = "Select to date..."
+		   	end
+			end
+	   elsif (params[:commit] == "Download Report")
 	   	path = get_download_path("farm")
 	    	file = File.open(path, "rb")
 	    	contents = file.read
 	    	file.close
 	    	send_data(contents , :type => 'text/csv', :filename => 'farm_report.csv')
-	   else
-	   	delete_report("farm")
-	   	if params[:from_date].blank? && params[:to_date].blank?
-	   		flash.now[:notice] = "Select from and to date.."
-	   	elsif params[:from_date].blank?
-	   		flash.now[:notice] = "Select from date.."
-	   	else
-	   		flash.now[:notice] = "Select to date..."
-	   	end
 	   end
  	end
 
@@ -101,6 +103,12 @@ class ReportsController < ApplicationController
 	   		flash.now[:notice] = "Select to date..."
 	   	end
 	   end
+	end
+
+	def email
+		file_path = get_download_path(params[:report_type])
+	   ReportMailer.send_report(current_user, "farm",file_path).deliver 
+	   redirect_to farm_reports_path, flash: {success: "Successfully Emailed report!"}
 	end
 	
  	private

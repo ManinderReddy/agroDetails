@@ -6,12 +6,12 @@
 			<%= date_field_tag :from_date%>&nbsp&nbsp
 			<label>To</label>
 			<%= date_field_tag :to_date %><br/><br/>
-			<%= submit_tag "Submit", name: nil ,class: 'submit_button' %>&nbsp&nbsp
+			<%= submit_tag "Submit",class: 'submit_button' %>&nbsp&nbsp
 			<%= link_to "Back", reports_path, class: 'submit_button' %>
 		</div>
 		<% if get_download_path("farm").present? %>
-			<%= hidden_field_tag :download_report, true %>
-			<%= submit_tag "Download Report" %>
+			<%= submit_tag "Download Report" %> &nbsp&nbsp
+			<%= link_to "Email Report", email_report_url(report_type: "farm") %>
 		<% end %>
 	<% end %>
 </div>

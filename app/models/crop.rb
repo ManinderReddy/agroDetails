@@ -46,7 +46,7 @@ class Crop < ActiveRecord::Base
 	def self.create_csv_file(user,from_date,to_date)
 		@crops = user.crops.where("crops.created_at between ? and ?", from_date,to_date)
 		if !@crops.blank?
-    		file_path = "#{Rails.root}/tmp/crop_report.csv"
+    		file_path = "#{Rails.root}/tmp/crop_report_#{user.id}.csv"
     		CSV.open(file_path, "w+") do |csv|
 	    		csv << ["Farm Name", "Farm Area", "Soil Type","Crop Name", "Acarage", "Season", "Farm Start Date", "Farm End Date", "Expected Yeild", "Actual Yeild", "Other Details"]
 	    		@crops.each do |crop|

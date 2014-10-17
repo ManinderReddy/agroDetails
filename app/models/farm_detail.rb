@@ -42,7 +42,7 @@ class FarmDetail < ActiveRecord::Base
 	def self.create_csv_file(user,from_date,to_date)
 		@farm_details = user.farm_details.where("created_at between ? and ?", from_date,to_date)
     	if !@farm_details.blank?
-    		file_path = "#{Rails.root}/tmp/farm_report.csv"
+    		file_path = "#{Rails.root}/tmp/farm_report_#{user.id}.csv"
     		CSV.open(file_path, "w+") do |csv|
     			csv << ["Farm Name", "Farm Area", "Soil Type", "Description", "Farm Address", "Farm City", "Farm State"]
     			@farm_details.each do |farm|

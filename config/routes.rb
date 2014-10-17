@@ -20,8 +20,8 @@ Rails.application.routes.draw do
 
   resources :reports do
     get 'farm', on: :collection
-    get 'crop', on: :collection
-    get 'soil', on: :collection
+    post 'crop', on: :collection
+    post 'soil', on: :collection
   end
   
   root to: "pages#home"
@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   match '/signup',        to: 'users#new',        :via => [:get]
   match '/signin',        to: 'sessions#new',     :via => [:get]
   match '/signout',       to: 'sessions#destroy', :via => [:get]
+  match 'email_report',   to: 'reports#email',    :via => [:get]
 
 
   # The priority is based upon order of creation: first created -> highest priority.
