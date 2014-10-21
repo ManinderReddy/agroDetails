@@ -85,6 +85,7 @@ module SessionsHelper
          nil
       end
    end
+
    private
    
       def get_user_using_remeber_token

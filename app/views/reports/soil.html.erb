@@ -1,17 +1,18 @@
 <div id="soil_report">
 	<h2 class="sideHeading">Soil Report</h2>
-	<%= form_tag soil_reports_path, method:'post' do %>
+	<%= form_tag soil_reports_path, method:'get' do %>
 	<div class="searchField">
 			<label>From</label>
-			<%= date_field_tag :from_date%>&nbsp&nbsp
+			<%= date_field_tag :from_date, @from_date %>&nbsp&nbsp
 			<label>To</label>
-			<%= date_field_tag :to_date %><br/><br/>
-			<%= submit_tag "Download", name: nil ,class: 'submit_button' %>&nbsp&nbsp
+			<%= date_field_tag :to_date, @to_date %><br/><br/>
+			<%= submit_tag "Submit",class: 'submit_button' %>&nbsp&nbsp
 			<%= link_to "Back", reports_path, class: 'submit_button' %>
 		</div>
 		<% if get_download_path("soil").present? %>
-			<%= hidden_field_tag :download_report, true %>
-			<%= submit_tag "Download Report" %>
+			<%= submit_tag "Download Report" %> &nbsp&nbsp
+			<%= hidden_field_tag :report_type, "soil" %>
+			<%= submit_tag "Email Report"%>
 		<% end %>
 	<% end %>
 </div>

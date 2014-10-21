@@ -3,15 +3,16 @@
 	<%= form_tag farm_reports_path, method:'get' do %>
 	<div class="searchField">
 			<label>From</label>
-			<%= date_field_tag :from_date%>&nbsp&nbsp
+			<%= date_field_tag :from_date, @from_date %>&nbsp&nbsp
 			<label>To</label>
-			<%= date_field_tag :to_date %><br/><br/>
+			<%= date_field_tag :to_date, @to_date %><br/><br/>
 			<%= submit_tag "Submit",class: 'submit_button' %>&nbsp&nbsp
 			<%= link_to "Back", reports_path, class: 'submit_button' %>
 		</div>
 		<% if get_download_path("farm").present? %>
 			<%= submit_tag "Download Report" %> &nbsp&nbsp
-			<%= link_to "Email Report", email_report_url(report_type: "farm") %>
+			<%= hidden_field_tag :report_type, "farm" %>
+			<%= submit_tag "Email Report"%>
 		<% end %>
 	<% end %>
 </div>
