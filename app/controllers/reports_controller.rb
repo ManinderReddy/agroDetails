@@ -1,4 +1,6 @@
 class ReportsController < ApplicationController
+before_filter :authenticate
+
 # before_filter :delete_temp_files
 
 	def index
