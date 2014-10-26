@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  
-  get 'fertilizers/index'
-
-  get 'fertilizer/index'
 
   resources :users, except: [:destroy]
   resources :sessions, only: [:create, :new, :destroy]
@@ -27,6 +23,8 @@ Rails.application.routes.draw do
     get 'crop', on: :collection
     get 'soil', on: :collection
   end
+
+  resources :fertilizers
   
   root to: "pages#home"
   

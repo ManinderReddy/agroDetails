@@ -3,7 +3,6 @@
 # Table name: crops
 #
 #  id             :integer          not null, primary key
-#  farm_id        :integer
 #  crop_name      :string(255)
 #  crop_acarage   :integer
 #  season         :string(255)
@@ -14,6 +13,7 @@
 #  Other_details  :text
 #  created_at     :datetime
 #  updated_at     :datetime
+#  farm_detail_id :integer
 #
 
 require 'test_helper'

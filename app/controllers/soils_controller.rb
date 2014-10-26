@@ -1,5 +1,6 @@
 class SoilsController < ApplicationController
 before_filter :authenticate
+before_filter :user_farm_mapping
 before_filter :correct_farm_soil_map, only: [:edit_selected]
 before_filter :validate_farm, only: [:new]
 
@@ -68,6 +69,14 @@ before_filter :validate_farm, only: [:new]
 
       def validate_farm
          @user = selected_farm.user if !selected_farm.nil?
-         redirect_to home_soils_path unless current_user?(@user)      
+         redirect_to soils_path unless current_user?(@user)      
+      end
+
+      def user_farm_mapping
+         if params[:search].present?
+            @farm= FarmDetail.search(params[:search])
+            @user = @farm.user
+            redirect_to soils_path(search: nil) unless current_user?(@user)
+         end
       end
 end

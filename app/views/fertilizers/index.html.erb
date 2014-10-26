@@ -1,2 +1,54 @@
-<h1>Fertilizers#index</h1>
-<p>Find me in app/views/fertilizers/index.html.erb</p>
+<div id="fertDetailsHome">
+	<h2 class="sideHeading">Fertilizer Details</h2>
+	<%= form_tag fertilizers_path, method: 'get' do %>
+		<% @farm= current_user.farm_details %>
+		<div class="searchField">
+			<%= select_tag :search, options_for_select(@farm.collect{ |u| [u.farm_name, u.id] },selected: params[:search]), prompt: 'Please select' %>&nbsp&nbsp
+			<%= select_tag :year, options_for_select(2010..2099, selected: params[:year]) %>
+			<%= submit_tag "Search", name: nil ,class: 'submit_button' %>
+		</div>
+	<% end %>
+	<% if params[:search].present? && params[:year].present? %>
+	<br/><br/>
+	<% if !@crops.blank? %>
+	<div class="tableIndex"> 
+	<!-- <%= form_tag(edit_selected_crops_path, method:'get') do %>-->
+		<table>
+			<thead>
+				<th></th>
+				<th>Crop Name</th>
+				<th>Acarage</th>
+				<th>Season</th>
+				<th>From</th>
+				<th>To</th>
+				<th>Exp yeild(in tons)</th>
+				<th>Actual yeild(in tons)</th>
+				<th>Other Details</th>
+			</thead>
+			<tbody>
+				<% for crop in @crops %>
+					<tr>
+					<td><%= radio_button_tag :crop_id, crop.id %></td>
+					<td><%= crop.crop_name %></td>
+					<td><%= crop.crop_acarage %></td>
+					<td><%= crop.season  %></td>
+					<td><%= crop.from_date %></td>
+					<td><%= crop.to_date  %></td>
+					<td><%= crop.expected_yeild  %></td>
+					<td><%= crop.actual_yeild  %></td>
+					<td><%= crop.Other_details  %></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+		<!-- <div class="editDel_buttons">
+			<ul>
+				<li><%= submit_tag "Edit", name: nil %></li>
+				<li><%= submit_tag "Delete", data: { confirm: "Are you sure?", title: "Delete Crop" } %></li>
+			</ul>
+		</div> 
+	<% end %> -->
+	</div>
+	<% end %>
+	<% end %>
+</div>

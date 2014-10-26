@@ -1,8 +1,6 @@
 class ReportsController < ApplicationController
 before_filter :authenticate
 
-# before_filter :delete_temp_files
-
 	def index
 		logger.debug params
 		case params[:search]
@@ -115,14 +113,18 @@ before_filter :authenticate
 
 		if params[:commit] == "Submit"
 			if params[:from_date].present? && params[:to_date].present?
-		    	delete_report("soil")
-		    	soil_file_path = Soil.create_csv_file(current_user,params[:from_date],params[:to_date])
-		    	if soil_file_path.present?
-		    		store_download_path(soil_file_path,"soil")
-			  		flash.now[:success] = "Report generated. Click Download!"
-			   else
-			   	flash.now[:notice] = "No records over selected duration!"
-			   end
+		    	if @to_date <= @from_date
+		    		flash.now[:notice] = "To date should be grater than From date!"
+		    	else
+			    	delete_report("soil")
+			    	soil_file_path = Soil.create_csv_file(current_user,params[:from_date],params[:to_date])
+			    	if soil_file_path.present?
+			    		store_download_path(soil_file_path,"soil")
+				  		flash.now[:success] = "Report generated. Click Download!"
+				   else
+				   	flash.now[:notice] = "No records over selected duration!"
+				   end
+				end
 			else
 		   	delete_report("soil")
 		   	if params[:from_date].blank? && params[:to_date].blank?
@@ -161,5 +163,11 @@ before_filter :authenticate
  			clear_download_path(report_name)
  		end
  	end
+
+ 	def to_date_greater_than_from_date(to_date,from_date)
+  		if to_date.present? && to_date <= from_date
+  			errors.add(:to_date, "should be grater than From date")
+  		end
+  	end
 
 end

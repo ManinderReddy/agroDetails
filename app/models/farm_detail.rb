@@ -17,20 +17,24 @@
 
 class FarmDetail < ActiveRecord::Base
 
+	attr_accessible :farm_area, :farm_address, :farm_description, 
+						:farm_name, :soil_type, :farm_city, :farm_state
+
 	validates :user_id, presence: true
 	validates :farm_name, presence: true,
 								 uniqueness:{case_sensitive: true}
 	validates :farm_area, presence: true
 	validates :farm_address, presence: true,
 									length: {maximum: 250}
+	validates :farm_city, presence:true
+	validates :farm_state, presence:true
+	validates :soil_type, presence:true
 
 	belongs_to :user
 
 	has_many :soils, dependent: :destroy 
 
 	has_many :crops, dependent: :destroy
-
-	attr_accessible :farm_area, :farm_address, :farm_description, :farm_name, :soil_type, :farm_city, :farm_state
 
 	default_scope  { order(created_at: :desc) }
 

@@ -3,7 +3,6 @@
 # Table name: crops
 #
 #  id             :integer          not null, primary key
-#  farm_id        :integer
 #  crop_name      :string(255)
 #  crop_acarage   :integer
 #  season         :string(255)
@@ -14,6 +13,7 @@
 #  Other_details  :text
 #  created_at     :datetime
 #  updated_at     :datetime
+#  farm_detail_id :integer
 #
 
 class Crop < ActiveRecord::Base
@@ -34,14 +34,10 @@ class Crop < ActiveRecord::Base
 	validates	:expected_yeild, presence: true
 
 	belongs_to :farm_detail
+	has_many	  :fertilizers
 
 	default_scope  { order(created_at: :desc) }
 	
-	# def self.fetch_crops(user,from_date,to_date)
-	# 	@crops = user.crops.where("crops.created_at between ? and ?", from_date,to_date)
-	# 	(@crops.blank?) ? nil : @crops
-	# end
-
 
 	def self.create_csv_file(user,from_date,to_date)
 		@crops = user.crops.where("crops.created_at between ? and ?", from_date,to_date)

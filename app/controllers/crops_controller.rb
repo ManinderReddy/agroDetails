@@ -1,5 +1,6 @@
 class CropsController < ApplicationController
 before_filter :authenticate
+before_filter :user_farm_mapping
 before_filter :correct_farm_crop_map, only: [:edit_selected]
 
 	def index
@@ -55,12 +56,19 @@ before_filter :correct_farm_crop_map, only: [:edit_selected]
 
 
 	private
+		def user_farm_mapping
+			if params[:search].present?
+				@farm= FarmDetail.search(params[:search])
+				@user = @farm.user
+				redirect_to crops_path(search: nil) unless current_user?(@user)
+			end
+		end
 	   
 	  	def correct_farm_crop_map
 	  		if !params[:crop_id].blank?
 	    		@crop = Crop.find(params[:crop_id])
 	    		@farm = @crop.farm_detail            
-	   		redirect_to home_crops_path unless selected_farm?(@farm)  
+	   		redirect_to crops_path unless selected_farm?(@farm)  
 	   	end
 	  	end
 
