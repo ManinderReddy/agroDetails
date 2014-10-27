@@ -4,7 +4,7 @@
 		<% @farm= current_user.farm_details %>
 		<div class="searchField">
 			<%= select_tag :search, options_for_select(@farm.collect{ |u| [u.farm_name, u.id] },selected: params[:search]), prompt: 'Please select' %>&nbsp&nbsp
-			<%= select_tag :year, options_for_select(2010..2099, selected: params[:year]) %>
+			<%= date_field_tag :year, params[:year] %>&nbsp&nbsp
 			<%= submit_tag "Search", name: nil ,class: 'submit_button' %>
 		</div>
 	<% end %>
@@ -12,7 +12,7 @@
 	<br/><br/>
 	<% if !@crops.blank? %>
 	<div class="tableIndex"> 
-	<!-- <%= form_tag(edit_selected_crops_path, method:'get') do %>-->
+	<%= form_tag(view_fertilizers_path, method:'get') do %>
 		<table>
 			<thead>
 				<th></th>
@@ -21,9 +21,6 @@
 				<th>Season</th>
 				<th>From</th>
 				<th>To</th>
-				<th>Exp yeild(in tons)</th>
-				<th>Actual yeild(in tons)</th>
-				<th>Other Details</th>
 			</thead>
 			<tbody>
 				<% for crop in @crops %>
@@ -34,20 +31,16 @@
 					<td><%= crop.season  %></td>
 					<td><%= crop.from_date %></td>
 					<td><%= crop.to_date  %></td>
-					<td><%= crop.expected_yeild  %></td>
-					<td><%= crop.actual_yeild  %></td>
-					<td><%= crop.Other_details  %></td>
 				</tr>
 				<% end %>
 			</tbody>
 		</table>
-		<!-- <div class="editDel_buttons">
+		<div class="editDel_buttons">
 			<ul>
-				<li><%= submit_tag "Edit", name: nil %></li>
-				<li><%= submit_tag "Delete", data: { confirm: "Are you sure?", title: "Delete Crop" } %></li>
+				<li><%= submit_tag "View Fertilizers", name: nil %></li>
 			</ul>
 		</div> 
-	<% end %> -->
+	<% end %> 
 	</div>
 	<% end %>
 	<% end %>

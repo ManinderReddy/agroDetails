@@ -34,10 +34,15 @@ class Crop < ActiveRecord::Base
 	validates	:expected_yeild, presence: true
 
 	belongs_to :farm_detail
-	has_many	  :fertilizers
+	has_many	  :fertilizers, dependent: :destroy
+	has_one	  :user, through: :farm_detail
 
 	default_scope  { order(created_at: :desc) }
 	
+	def self.search(crop_id)
+		crop = Crop.find_by_id(crop_id)
+		(crop) ? crop : nil
+	end
 
 	def self.create_csv_file(user,from_date,to_date)
 		@crops = user.crops.where("crops.created_at between ? and ?", from_date,to_date)

@@ -1,0 +1,12 @@
+<div id="addFertilizerDetails">
+	<h2 class="sideHeading">Fertilizer Details</h2>
+	<%= form_for(@fertilizer) do |fields|%>
+		<%= render "newFertilizerFields", f:fields%>
+		<div class="button_align">
+			<ul>
+				<li><%= fields.submit "Submit", class: 'submit_button' %></li>
+				<li><%= link_to "Cancel", view_fertilizers_path(crop_id: selected_crop.id), class: 'submit_button' %></li>
+			</ul>
+		</div>	
+	<% end%>
+</div>

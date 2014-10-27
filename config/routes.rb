@@ -24,7 +24,11 @@ Rails.application.routes.draw do
     get 'soil', on: :collection
   end
 
-  resources :fertilizers
+  resources :fertilizers, except: [:show, :edit, :update, :destroy] do
+    get 'view', on: :collection
+    get 'edit_selected', on: :collection
+    put 'update_selected', on: :collection
+  end
   
   root to: "pages#home"
   

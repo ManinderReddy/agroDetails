@@ -21,5 +21,6 @@ class Fertilizer < ActiveRecord::Base
 	validates :amount_of_fertilizer, presence:true,
 				 numericality: { only_integer: true, greater_than: 0 }
 
-	belongs_to :crop, dependent: :destroy
+	belongs_to :crop
+
 end

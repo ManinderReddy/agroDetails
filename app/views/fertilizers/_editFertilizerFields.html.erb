@@ -1,0 +1,28 @@
+<%= render "shared/error_messages", object: f.object %>
+<table class="tableDetails">
+	<tr>
+		<td class="field">
+		<div><%= f.label :fertilizer_name, "Fertilizer Name" %></div>
+		<div><%= f.select :fertilizer_name, options_for_select(FERTILIZERS, selected: f.object.fertilizer_name), prompt: "--select--" %></div>
+		</td>
+	</tr>
+	<tr>
+		<td class="field">
+			<div><%= f.label :amount_of_fertilizer, "Amount of Fertlizer Added" %></div>
+			<div><%= f.number_field :amount_of_fertilizer, placeholder: "Enter quantity in Kgs"%></div>
+		</td>
+	</tr>
+	<tr>
+		<td class="field">
+			<div><%= f.label :fertilizer_added_on, "Fertilizer Added Date" %></div>
+			<div><%= f.date_field :fertilizer_added_on %></div>
+		</td>
+	</tr>
+	<tr>
+		<td class="field">
+			<div><%= f.label :other_details %></div>
+			<div><%= f.text_field :other_details %></div>
+		</td>
+	</tr>
+</table>
+

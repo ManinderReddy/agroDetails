@@ -1,0 +1,37 @@
+<div id="viewFertilizers">
+	<h2 class="sideHeading">Fertilizer Details</h2>
+	<%= link_to "<button>Add Fertlizer Details</button>".html_safe, new_fertilizer_path %>
+	<%= link_to "<button>Back</button>".html_safe, fertilizers_path(search: cookies[:search], year: cookies[:year]) %>
+	<% if @fertilizers.present? %>
+	<div class="tableIndex"> 
+	<%= form_tag(edit_selected_fertilizers_path, method:'get') do %>
+		<table>
+			<thead>
+				<th></th>
+				<th>Fertilizer Name</th>
+				<th>Quantity</th>
+				<th>Added On</th>
+				<th>Other Details</th>
+			</thead>
+			<tbody>
+				<% for fertilizer in @fertilizers %>
+					<tr>
+					<td><%= radio_button_tag :fertilizer_id, fertilizer.id %></td>
+					<td><%= fertilizer.fertilizer_name %></td>
+					<td><%= fertilizer.amount_of_fertilizer %></td>
+					<td><%= fertilizer.fertilizer_added_on  %></td>
+					<td><%= fertilizer.other_details %></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+		<div class="editDel_buttons">
+			<ul>
+				<li><%= submit_tag "Edit", name: nil %></li>
+				<li><%= submit_tag "Delete", data: { confirm: "Are you sure?", title: "Delete Fertilizer" } %></li>
+			</ul>
+		</div>
+	<% end %> 
+	</div>
+	<% end %>
+</div>
