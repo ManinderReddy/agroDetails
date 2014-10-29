@@ -1,7 +1,7 @@
 <div id="viewFertilizers">
 	<h2 class="sideHeading">Fertilizer Details</h2>
 	<%= link_to "<button>Add Fertlizer Details</button>".html_safe, new_fertilizer_path %>
-	<%= link_to "<button>Back</button>".html_safe, fertilizers_path(search: cookies[:search], year: cookies[:year]) %>
+	<%= link_to "<button>Back</button>".html_safe, fertilizers_path(search: cookies[:search], date: {year: cookies[:year]}) %>
 	<% if @fertilizers.present? %>
 	<div class="tableIndex"> 
 	<%= form_tag(edit_selected_fertilizers_path, method:'get') do %>

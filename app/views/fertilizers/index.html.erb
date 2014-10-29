@@ -3,45 +3,48 @@
 	<%= form_tag fertilizers_path, method: 'get' do %>
 		<% @farm= current_user.farm_details %>
 		<div class="searchField">
-			<%= select_tag :search, options_for_select(@farm.collect{ |u| [u.farm_name, u.id] },selected: params[:search]), prompt: 'Please select' %>&nbsp&nbsp
-			<%= date_field_tag :year, params[:year] %>&nbsp&nbsp
+			<%= label_tag "Farm Name" %>
+			<%= select_tag :search, options_for_select(@farm.collect{ |u| [u.farm_name, u.id] },selected: @farm_id), prompt: 'Please select' %>&nbsp&nbsp
+			<%= label_tag "Year" %>
+			<%= select_year(@farm_year.to_i, start_year: 2010, end_year: Time.zone.now.year + 30,
+			:field_name => :year) %>&nbsp&nbsp		
 			<%= submit_tag "Search", name: nil ,class: 'submit_button' %>
 		</div>
 	<% end %>
-	<% if params[:search].present? && params[:year].present? %>
-	<br/><br/>
-	<% if !@crops.blank? %>
-	<div class="tableIndex"> 
-	<%= form_tag(view_fertilizers_path, method:'get') do %>
-		<table>
-			<thead>
-				<th></th>
-				<th>Crop Name</th>
-				<th>Acarage</th>
-				<th>Season</th>
-				<th>From</th>
-				<th>To</th>
-			</thead>
-			<tbody>
-				<% for crop in @crops %>
-					<tr>
-					<td><%= radio_button_tag :crop_id, crop.id %></td>
-					<td><%= crop.crop_name %></td>
-					<td><%= crop.crop_acarage %></td>
-					<td><%= crop.season  %></td>
-					<td><%= crop.from_date %></td>
-					<td><%= crop.to_date  %></td>
-				</tr>
-				<% end %>
-			</tbody>
-		</table>
-		<div class="editDel_buttons">
-			<ul>
-				<li><%= submit_tag "View Fertilizers", name: nil %></li>
-			</ul>
-		</div> 
-	<% end %> 
-	</div>
-	<% end %>
+	<% if !@farm_id.nil? && !@farm_year.nil? %>
+		<br/><br/>
+		<% if @crops.any? %>
+			<div class="tableIndex"> 
+			<%= form_tag(view_fertilizers_path, method:'get') do %>
+				<table>
+					<thead>
+						<th></th>
+						<th>Crop Name</th>
+						<th>Acarage</th>
+						<th>Season</th>
+						<th>From</th>
+						<th>To</th>
+					</thead>
+					<tbody>
+						<% for crop in @crops %>
+							<tr>
+							<td><%= radio_button_tag :crop_id, crop.id %></td>
+							<td><%= crop.crop_name %></td>
+							<td><%= crop.crop_acarage %></td>
+							<td><%= crop.season  %></td>
+							<td><%= crop.from_date %></td>
+							<td><%= crop.to_date  %></td>
+						</tr>
+						<% end %>
+					</tbody>
+				</table>
+				<div class="editDel_buttons">
+					<ul>
+						<li><%= submit_tag "View Fertilizers", name: nil %></li>
+					</ul>
+				</div> 
+			<% end %> 
+			</div>
+		<% end %>
 	<% end %>
 </div>

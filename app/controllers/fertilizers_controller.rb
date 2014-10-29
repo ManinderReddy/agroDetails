@@ -2,24 +2,38 @@ class FertilizersController < ApplicationController
 	before_filter :authenticate
 	before_filter :user_farm_mapping, only: [:index]
 	before_filter :user_crop_mapping, only: [:view]
+
 	def index
 		@title = "Fertilizer Details"
-		if params[:search].present? && params[:year].present? 
-		  	@farm= FarmDetail.search(params[:search])
-		 	if !@farm.nil?
-				cookies[:search] = params[:search]
-				cookies[:year] = params[:year]
+		@crops = [nil]
+		@farm_id = params[:search]
+		if params[:date].present?
+			if params[:date][:year].present?
+				@farm_year = params[:date][:year].to_i
+			else
+				@farm_year = nil
+			end
+		end
+		logger.debug @farm_id
+		logger.debug @farm_year
+		if !@farm_id.nil? && !@farm_year.nil?
+			@farm = FarmDetail.search(@farm_id)
+			logger.debug @farm.inspect
+		 	if !@farm.blank?
+		 		logger.debug { "In if cond fetching crops" }
+				cookies[:search] = @farm_id
+				cookies[:year] = @farm_year
 		  		hold_selected_farm(@farm)
-		  		@crops=@farm.crops
+		  		@crops = Crop.find_by_farm_and_year(@farm, @farm_year)
+		  		flash.now[:notice] = "No results for this search!" if !@crops.any?
 			else
 				cookies.delete :search
 				cookies.delete :year
-				@crops = nil
-				flash.now[:notice] = "No Crops available for this search!"
+				flash.now[:notice] = "No Crops added to this Farm!"
 			end
-		elsif params[:search].blank? && params[:year].present?
+		elsif @farm_id.nil? && !@farm_year.nil?
 		   flash.now[:notice] = "Please select a farm!"
-		elsif params[:year].blank? && params[:search].present?
+		elsif @farm_year.nil? && !@farm_id.nil?
 			flash.now[:notice] = "Please select a year!"
       end
 	end
@@ -51,7 +65,7 @@ class FertilizersController < ApplicationController
 				flash.now[:notice] = "No Fertilizers are added!"
 			end
 		else
-         redirect_to fertilizers_path, flash: {notice: "Select a Crop to view Fertilizers!"}
+         redirect_to fertilizers_path(search: cookies[:search], date: {year: cookies[:year]}), flash: {notice: "Select a Crop to view Fertilizers!"}
       end		
 	end
 

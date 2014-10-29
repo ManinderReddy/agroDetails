@@ -44,6 +44,11 @@ class Crop < ActiveRecord::Base
 		(crop) ? crop : nil
 	end
 
+	def self.find_by_farm_and_year(farm, year)
+		@crops = farm.crops.where("strftime('%Y', crops.created_at) = '?'", year)
+		(@crops.any?) ? @crops : [nil]
+	end
+
 	def self.create_csv_file(user,from_date,to_date)
 		@crops = user.crops.where("crops.created_at between ? and ?", from_date,to_date)
 		if !@crops.blank?
