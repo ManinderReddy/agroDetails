@@ -45,7 +45,8 @@ class Crop < ActiveRecord::Base
 	end
 
 	def self.find_by_farm_and_year(farm, year)
-		@crops = farm.crops.where("strftime('%Y', crops.created_at) = '?'", year)
+		# @crops = farm.crops.where("strftime('%Y', crops.created_at) = '?'", year)
+		@crops = farm.crops.where("extract(year from crops.created_at) = '?'", year)
 		(@crops.any?) ? @crops : [nil]
 	end
 
