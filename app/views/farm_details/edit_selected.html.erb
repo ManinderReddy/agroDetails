@@ -1,5 +1,5 @@
 <div id="editFarm">
-<h2>Edit Farm Details</h2>
+<h2 class="sideHeading">Update Farm Details</h2>
 <%= form_for(@farm_details, :url => update_selected_farm_details_path, :html => { :method => :put }) do |fields| %>
 <%= hidden_field_tag "farm_id", @farm_details.id %>
 <%= render "editFarmFields", f:fields%>

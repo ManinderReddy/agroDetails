@@ -2,7 +2,7 @@ class ReportsController < ApplicationController
 before_filter :authenticate
 
 	def index
-		logger.debug params
+
 		case params[:search]
 		when "Farms"
 			redirect_to farm_reports_path
@@ -12,8 +12,6 @@ before_filter :authenticate
 			redirect_to crop_reports_path
 		# when "Fertilizers"
 		# 	redirect_to fertilizers_report
-		# when "Full Report"
-		# 	redirect_to full_report							
 		else
 			flash.now[:notice] = "Select to Report!" if !params[:search].nil?
 		end
@@ -154,7 +152,7 @@ before_filter :authenticate
 	   end
 	end
 	
- 	private
+private
 
  	def delete_report(report_name)
  		file_path= get_download_path(report_name)

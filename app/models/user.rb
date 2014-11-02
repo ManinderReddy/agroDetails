@@ -82,6 +82,10 @@ class User < ActiveRecord::Base
 		(user && user.password_match?(login_password)) ? user :nil
 	end
 
+	def self.search(user_id)
+		user = User.find_by_id(user_id)
+		 (user) ? user : nil
+	end
 
 	private
 		def encrypt_password
