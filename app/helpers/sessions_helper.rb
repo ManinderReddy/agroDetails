@@ -25,6 +25,10 @@ module SessionsHelper
    def sign_out
       #delete the remembered token from cookie and set user to nil
       cookies.delete(:remember_token)
+      cookies.delete :search
+      cookies.delete :year
+      cookies.delete(:crop_token)
+      cookies.delete(:farm_token)
       self.current_user = nil
    end
 

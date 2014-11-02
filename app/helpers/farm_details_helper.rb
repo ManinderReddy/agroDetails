@@ -24,7 +24,6 @@ module FarmDetailsHelper
    def clear_selected_farm
       #delete the farm token from cookie and set farm to nil
       if !farm_token.nil?
-      	logger.debug farm_token
       	cookies.delete(:farm_token)
       	self.selected_farm = nil
    	end
