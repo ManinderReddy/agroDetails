@@ -3,7 +3,7 @@ before_filter :authenticate
 before_filter :user_farm_mapping
 before_filter :correct_farm_soil_map, only: [:edit_selected]
 before_filter :validate_farm, only: [:new]
-
+before_filter :initialize_constants, except: [:index]
    def index
   	   @title = "Soil Details"
       if !params[:search].blank?

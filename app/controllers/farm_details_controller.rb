@@ -1,5 +1,6 @@
 class FarmDetailsController < ApplicationController
 before_filter :authenticate
+before_filter :initialize_constants, except: [:index]
 
 	def index
 		@title = "Farm Details"
@@ -23,7 +24,6 @@ before_filter :authenticate
 
 	def edit_selected
 	   @title = "Edit Farm Details"
-
 	   if params[:farm_id].nil?
 	   	redirect_to farm_details_path, flash: {notice: "Please select a farm to update!"}
 	   else

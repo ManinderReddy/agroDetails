@@ -3,7 +3,7 @@
 	<tr>
 		<td class="field">
 		<div><%= f.label :crop_name, "Crop Name" %></div>
-		<div><%=f.select :crop_name, options_for_select(CROPNAMES), prompt: "--select--" %></div>
+		<div><%=f.select :crop_name, options_for_select(@crop_name_con.collect{ |u| [u.lookup_value, u.lookup_value] }, selected: f.object.crop_name), prompt: '--Select--' %></div>
 		</td>
 		<td class="field">
 			<div><%= f.label :crop_acarage, "Crop Acarage" %></div>
@@ -13,7 +13,7 @@
 	<tr>
 		<td class="field">
 			<div><%= f.label :season, "Season" %></div>
-			<div><%= f.select :season, options_for_select(SEASON), prompt: "--select--" %></div>
+			<div><%= f.select :season, options_for_select(@season_con.collect{ |u| [u.lookup_value, u.lookup_value] }, selected: f.object.season), prompt: '--Select--' %></div>
 		</td>
 	</tr>
 	<tr>

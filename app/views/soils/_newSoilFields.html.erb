@@ -3,37 +3,37 @@
 	<tr>
 		<td class="field">
 			<div><%= f.label :soil_type, "Type of Soil" %></div>
-			<div><%=f.select :soil_type, options_for_select(SOILTYPES), prompt: "--select--" %></div>
+			<div><%=f.select :soil_type, options_for_select(@soil_type_con.collect{ |u| [u.lookup_value, u.lookup_value] }, selected: f.object.soil_type), prompt: '--Select--' %></div>
 		</td>
 		<td class="field">
 			<div><%= f.label :soil_texture, "Texture of Soil" %></div>
-			<div><%= f.select :soil_texture, options_for_select(SOILTEXTURES), prompt: "--select--" %></div>
+			<div><%= f.select :soil_texture, options_for_select(@soil_texture_con.collect{ |u| [u.lookup_value, u.lookup_value] }, selected: f.object.soil_texture), prompt: '--Select--' %></div>
 		</td>
 	</tr>
 	<tr>
 		<td class="field">
 			<div><%= f.label :season, "Which season?" %></div>
-			<div><%= f.select :season, options_for_select(SEASON), prompt: "--select--" %></div>
+			<div><%= f.select :season, options_for_select(@season_con.collect{ |u| [u.lookup_value, u.lookup_value] }, selected: f.object.season), prompt: '--Select--' %></div>
 		</td>
 		<td class="field">
 			<div><%= f.label :year_of_details, "Which year?" %></div>
-			<div><%= f.select :year_of_details, options_for_select(2010..2099) %></div>
+			<div><%= f.select :year_of_details, options_for_select(2010..2099, selected: f.object.year_of_details) %></div>
 		</td>
 	</tr>
 	<tr>
 		<td class="field">
 			<div><%= f.label :water_availability, "Water Availability" %></div>
-			<div><%= f.select :water_availability,  options_for_select(QUANTITY), prompt: "--select--" %></div>
+			<div><%= f.select :water_availability,  options_for_select(@quantity_con.collect{ |u| [u.lookup_value, u.lookup_value] }, selected: f.object.water_availability), prompt: '--Select--' %></div>
 		</td>
 	</tr>
 	<tr>
 		<td class="field">
 			<div><%= f.label :soil_ph, "Soil pH level" %></div>
-			<div><%= f.select :soil_ph, options_for_select(SOIL_PH), prompt: "--select--" %></div>
+			<div><%= f.select :soil_ph, options_for_select(@soil_ph_con.collect{ |u| [u.lookup_value, u.lookup_value] }, selected: f.object.soil_ph), prompt: '--Select--' %></div>
 		</td>
 		<td class="field">
 			<div><%= f.label :soil_biota, "Contains high amount of" %></div>
-			<div><%= f.select :soil_biota, options_for_select(SOIL_BIOTA), prompt: "--select--" %></div>
+			<div><%= f.select :soil_biota, options_for_select(@soil_biota_con.collect{ |u| [u.lookup_value, u.lookup_value] }, selected: f.object.soil_biota), prompt: '--Select--' %></div>
 		</td>
 	</tr>
 </table>

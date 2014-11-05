@@ -15,4 +15,10 @@ class LookupField < ActiveRecord::Base
 
 	validates :lookup_type, presence: true
 	validates :lookup_value, presence: true
+
+	def self.search(lookup_type)
+		lookup_data = LookupField.where("lookup_type = ?", lookup_type)
+		(lookup_data) ? lookup_data : nil
+	end
+
 end

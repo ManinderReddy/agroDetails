@@ -13,7 +13,7 @@
 	<tr>
 		<td class="field">
 			<div><%= f.label :soil_type, "Type of Soil" %></div>
-			<div><%=f.select :soil_type, options_for_select(SOILTYPES), prompt: "--select--" %></div>
+			<div><%=f.select :soil_type, options_for_select(@soil_type_con.collect{ |u| [u.lookup_value, u.lookup_value] }, selected: f.object.soil_type), prompt: '--Select--' %></div>
 		</td>
 	</tr>
 	<tr>

@@ -3,7 +3,7 @@
 	<tr>
 		<td class="field">
 		<div><%= f.label :fertilizer_name, "Fertilizer Name" %></div>
-		<div><%=f.select :fertilizer_name, options_for_select(FERTILIZERS), prompt: "--select--" %></div>
+		<div><%=f.select :fertilizer_name, options_for_select(@fertilizer_con.collect{ |u| [u.lookup_value, u.lookup_value] }, selected: f.object.fertilizer_name), prompt: '--Select--' %></div>
 		</td>
 	</tr>
 	<tr>

@@ -2,6 +2,7 @@ class FertilizersController < ApplicationController
 before_filter :authenticate
 before_filter :user_farm_mapping, only: [:index]
 before_filter :user_crop_mapping, only: [:view]
+before_filter :initialize_constants, except: [:index]
 
 def index
 	@title = "Fertilizer Details"

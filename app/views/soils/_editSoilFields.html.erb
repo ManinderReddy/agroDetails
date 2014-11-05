@@ -3,17 +3,17 @@
 	<tr>
 		<td class="field">
 			<div><%= f.label :soil_type, "Type of Soil" %></div>
-			<div><%=f.select :soil_type, options_for_select(SOILTYPES, selected: f.object.soil_type) %></div>
+			<div><%=f.select :soil_type, options_for_select(@soil_type_con.collect{ |u| [u.lookup_value, u.lookup_value] }, selected: f.object.soil_type) %></div>
 		</td>
 		<td class="field">
 			<div><%= f.label :soil_texture, "Texture of Soil" %></div>
-			<div><%= f.select :soil_texture, options_for_select(SOILTEXTURES, selected: f.object.soil_texture) %></div>
+			<div><%= f.select :soil_texture, options_for_select(@soil_texture_con.collect{ |u| [u.lookup_value, u.lookup_value] }, selected: f.object.soil_texture) %></div>
 		</td>
 	</tr>
 	<tr>
 		<td class="field">
 			<div><%= f.label :season, "Which season?" %></div>
-			<div><%= f.select :season, options_for_select(SEASON, selected: f.object.season) %></div>
+			<div><%= f.select :season, options_for_select(@season_con.collect{ |u| [u.lookup_value, u.lookup_value] }, selected: f.object.season) %></div>
 		</td>
 		<td class="field">
 			<div><%= f.label :year_of_details, "Which year?" %></div>
@@ -23,17 +23,17 @@
 	<tr>
 		<td class="field">
 			<div><%= f.label :water_availability, "Water Availability" %></div>
-			<div><%= f.select :water_availability,  options_for_select(QUANTITY, selected: f.object.water_availability) %></div>
+			<div><%= f.select :water_availability,  options_for_select(@quantity_con.collect{ |u| [u.lookup_value, u.lookup_value] }, selected: f.object.water_availability) %></div>
 		</td>
 	</tr>
 	<tr>
 		<td class="field">
 			<div><%= f.label :soil_ph, "Soil pH level" %></div>
-			<div><%= f.select :soil_ph, options_for_select(SOIL_PH, selected: f.object.soil_ph) %></div>
+			<div><%= f.select :soil_ph, options_for_select(@soil_ph_con.collect{ |u| [u.lookup_value, u.lookup_value] }, selected: f.object.soil_ph) %></div>
 		</td>
 		<td class="field">
 			<div><%= f.label :soil_biota, "Contains high amount of" %></div>
-			<div><%= f.select :soil_biota, options_for_select(SOIL_BIOTA, selected: f.object.soil_biota)%></div>
+			<div><%= f.select :soil_biota, options_for_select(@soil_biota_con.collect{ |u| [u.lookup_value, u.lookup_value] }, selected: f.object.soil_biota) %></div>
 		</td>
 	</tr>
 	
