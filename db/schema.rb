@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141026033647) do
+ActiveRecord::Schema.define(version: 20141105153519) do
 
   create_table "crops", force: true do |t|
     t.string   "crop_name"
@@ -49,6 +49,14 @@ ActiveRecord::Schema.define(version: 20141026033647) do
     t.date     "fertilizer_added_on"
     t.integer  "amount_of_fertilizer"
     t.string   "other_details"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "lookup_fields", force: true do |t|
+    t.string   "lookup_type"
+    t.string   "lookup_value"
+    t.text     "other_details"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
