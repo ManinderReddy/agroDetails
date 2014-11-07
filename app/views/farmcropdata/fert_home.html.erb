@@ -15,7 +15,7 @@
 
 
 <div id="knowFertilizer">
-	<h2 class="sideHeading">Know Fertilizer Data</h2>
+	<h2 class="sideHeading">Fertilizers</h2>
 	<% @fertilizer_con = LookupField.search("FERTILIZERS") %>
 	<label>Fertilizer Type </label> <%= select_tag :fert_name, options_for_select(@fertilizer_con.collect{ |u| [u.lookup_value, u.lookup_value] }, selected: params[:fert_name]), prompt: '--Select--' %>
 	<div class="dynamic_details">
