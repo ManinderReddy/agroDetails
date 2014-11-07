@@ -2,6 +2,8 @@
   <div id='cssmenu'>
     <ul>
       <li><%= link_to "Home", root_path %></li>
+      <li><%= link_to "Soils", knowsoilcrop_path %></li>
+      <li><%= link_to "Fertilizers", knowfert_path %></li>
       <% if signed_in?%>
         <li class='has-sub'><a><span>My Farm</span></a>
             <ul>

@@ -11,7 +11,7 @@
 }
 
 body {
-    font-family:  'Helvetica Neue', Arial, Sans-Serif;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
     font-size: 14px;
     color:#fff;
     background-color: #ecf0f1;
@@ -307,7 +307,9 @@ table.tableDetails td textarea {
 #soilDetailsHome select,
 #cropDetailsHome select,
 #reports select,
-#fertDetailsHome select {
+#fertDetailsHome select,
+#knowFertilizer select,
+#knowSoilCrops select{
   width: 20%;
   margin-left: 1%;
   margin-bottom: 7px;
@@ -318,6 +320,7 @@ table.tableDetails td textarea {
   border: 1px solid #bbb;
   padding: 0 0 0 10px;
   font-size: 14px;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
 }
 
 table.tableDetails td input[type="text"]:focus,
@@ -329,7 +332,9 @@ table.tableDetails td textarea:focus,
 #soilDetailsHome select:focus,
 #cropDetailsHome select:focus,
 #reports select:focus,
-#fertDetailsHome select:focus {
+#fertDetailsHome select:focus,
+#knowFertilizer select:focus,
+#knowSoilCrops select:focus {
   border: 1px solid #3498db;
 }
 
@@ -362,6 +367,13 @@ table.tableDetails td textarea:focus,
 
 .tableIndex table tbody tr td {
   padding-left: 0.5em;
+}
+
+.dynamic_details {
+  padding-left: 1.5em;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
 }
 
 /*Error messages*/

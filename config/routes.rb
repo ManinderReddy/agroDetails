@@ -29,7 +29,7 @@ Rails.application.routes.draw do
     get 'edit_selected', on: :collection
     put 'update_selected', on: :collection
   end
-  
+
   root to: "pages#home"
   
   match '/contact',       to: 'pages#contact',    :via => [:get]
@@ -38,7 +38,8 @@ Rails.application.routes.draw do
   match '/signup',        to: 'users#new',        :via => [:get]
   match '/signin',        to: 'sessions#new',     :via => [:get]
   match '/signout',       to: 'sessions#destroy', :via => [:get]
-  
+  match '/knowfert',      to: 'farmcropdata#fert_home', :via => [:get]
+  match '/knowsoilcrop',      to: 'farmcropdata#soilcrop_home', :via => [:get]
 
 
   # The priority is based upon order of creation: first created -> highest priority.

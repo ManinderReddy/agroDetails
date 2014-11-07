@@ -1,0 +1,95 @@
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('.list').hide();
+
+	$('#soil_name').change(function () {
+		var fert_val = $('#soil_name').find(':selected').html();
+		$('.list').hide();
+		$('#'+fert_val).show();
+	});
+	});
+</script>
+
+
+
+<div id="knowSoilCrops">
+	<h2 class="sideHeading">Soil and Crops</h2>
+	<% @soil_type_con = LookupField.search("SOILTYPES") %>
+	<label>Soil Type </label> <%= select_tag :soil_name, options_for_select(@soil_type_con.collect{ |u| [u.lookup_value, u.lookup_value] }, selected: params[:soil_name]), prompt: '--Select--' %>
+	<div class="dynamic_details">
+	<div class="list" id="Alluvial">
+	This type of soil is common in the delta regions. Alluvial soils are deposited by rivers and are rich in some nutrients (particularly potash and humus), but are lacking in nitrogen and phosphorous. They tend to be sandier and quicker-draining than many other soils.
+	<ul>
+		<li>Rice</li>
+		<li>Wheat</li>
+		<li>Sugarcane</li>
+		<li>Cotton</li>
+		<li>Jute</li>
+	</ul>
+	These crops grows well in this kind of soils.
+	</div>
+	<div class="list" id="Black">
+	Black soil gets its color from various salts or from humus. It contains a large amount of clay, but is sandy as well in hillier regions. This soil contains moderate amounts of phosphorous but is poor in nitrogen. This type of soil is also used for  
+	<ul>
+		<li>Rice</li>
+		<li>Wheat</li>
+		<li>Sugarcane</li>
+		<li>Cotton</li>
+		<li>Jute</li>
+	</ul>
+	It is additionally used to grow
+	<ul>
+		<li>Groundnut</li>
+		<li>Millet</li>
+		<li>Oilseeds</li>
+	</ul>
+	</div>
+	<div class="list" id="Desert">Desert soils are sandy and dry. They do contain nitrogen, but are suitable for agriculture only if there is a sufficient water supply. Generally only drought-resistant crops such as barley and millet can grow in this type of soil.
+	</div>
+	<div class="list" id="Laterite">These soils are found in areas with heavy rainfall, particularly near the coasts. It is an acidic soil and is rich in iron, which gives the soil a somewhat red appearance. It is used to grow more tropical crops such as 
+	<ul>
+		<li>Cashew</li>
+		<li>Rubber</li>
+		<li>Coconut</li>
+		<li>Tea</li>
+		<li>Coffee</li>
+	</ul>
+	</div>
+	<div class="list" id="Mountain">
+	These soils are found in the Mountains and contain significant amounts of organic matter. They are somewhat acidic, but suitable for growing 
+	<ul>
+		<li>Tea</li>
+		<li>Coffee</li>
+		<li>Spices</li>
+		<li>Many types of tropical fruits</li>
+	</ul>
+	</div>
+	<div class="list" id="Red">
+	Red and yellow soils get their names from the very large amounts of iron oxide present in them. They are sandy and somewhat acidic, and are also low in nitrogen and phosphorous. Despite this, red and yellow soils are used to grow 
+	<ul>
+		<li>Rice</li>
+		<li>Wheat</li>
+		<li>Sugarcane</li>
+		<li>Millet</li>
+		<li>Groundnut</li>
+		<li>Ragi</li>
+		<li>Potato</li>
+	</ul>
+	</div>
+	<div class="list" id="Yellow">
+	Red and yellow soils get their names from the very large amounts of iron oxide present in them. They are sandy and somewhat acidic, and are also low in nitrogen and phosphorous. Despite this, red and yellow soils are used to grow 
+	<ul>
+		<li>Rice</li>
+		<li>Wheat</li>
+		<li>Sugarcane</li>
+		<li>Millet</li>
+		<li>Groundnut</li>
+		<li>Ragi</li>
+		<li>Potato</li>
+	</ul>
+	</div>
+	<div class="list" id="Other">
+	There are various other types of soil, but none of them is suitable for growing crops. Saline and alkaline soils are too low in nutrients and too high in salt for productive agriculture. Marsh soils are likewise unfit, but mainly because of their high acidity.
+	</div>
+	</div>
+</div>

@@ -1,0 +1,91 @@
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('.list').hide();
+
+	$('#fert_name').change(function () {
+		var fert_val = $('#fert_name').find(':selected').html();
+		fert_val = fert_val.replace(/ /g,"_");
+		
+		$('.list').hide();
+		$('#'+fert_val).show();
+	});
+	});
+</script>
+
+
+
+<div id="knowFertilizer">
+	<h2 class="sideHeading">Know Fertilizer Data</h2>
+	<% @fertilizer_con = LookupField.search("FERTILIZERS") %>
+	<label>Fertilizer Type </label> <%= select_tag :fert_name, options_for_select(@fertilizer_con.collect{ |u| [u.lookup_value, u.lookup_value] }, selected: params[:fert_name]), prompt: '--Select--' %>
+	<div class="dynamic_details">
+	<div class="list" id="Sodium_Nitrates">
+		Sodium Nitrates are also known as Chilates or Chilean nitrate. The Nitrogen contained in Sodium Nitrate is refined and amounts to 16%. This means that the Nitrogen is immediately available to plants and as such is a valuable source of Nitrogen in a type of fertilizer. When one makes a soil amendment using Sodium Nitrates as a type of fertilizer, it is usually as a top- and side-dressing. Particularly when nursing young plants and garden vegetables. In soil that is acidic Sodium Nitrate is quite useful as a type of fertilizer. However, the excess use of Sodium Nitrate may cause deflocculation.
+	</div>
+	<div class="list" id="Ammonium_Sulphate">
+		This fertilizer type comes in a white crystalline salt form, containing 20 to 21% ammonia cal nitrogen. It is easy to handle and it stores well under dry conditions. However, during the rainy season, it sometimes, forms lumps. (TIP: When these lumps do occur you should grind them down to a powered form before use.) Though this fertilizer type is soluble in water, its nitrogen is not readily lost in drainage, because the ammonium ion is retained by the soil particles. A note of caution: Ammonium sulphate may have an acid effect on garden soil. Over time, the long-continued use of this type of fertilizer will increase soil acidity and thus lower the yield. (TIP: It is advisable to use this fertilizer type together with bulky organic manures to safeguard against the ill effects of continued application of ammonium sulphate.)
+	</div>
+	<div class="list" id="Ammonium_Sulphate">
+		This fertilizer type comes in a white crystalline salt form, containing 20 to 21% ammonia cal nitrogen. It is easy to handle and it stores well under dry conditions. However, during the rainy season, it sometimes, forms lumps. (TIP: When these lumps do occur you should grind them down to a powered form before use.) Though this fertilizer type is soluble in water, its nitrogen is not readily lost in drainage, because the ammonium ion is retained by the soil particles. A note of caution: Ammonium sulphate may have an acid effect on garden soil. Over time, the long-continued use of this type of fertilizer will increase soil acidity and thus lower the yield. (TIP: It is advisable to use this fertilizer type together with bulky organic manures to safeguard against the ill effects of continued application of ammonium sulphate.)
+
+		The application of Ammonium sulphate fertilizer can be done before sowing, at sowing time, or even as a top-dressing to the growing crop. Do however take care NOT to apply it along with, or too close to, the seed, because in concentrated form, it affects seed germination very adversely.
+	</div>
+	<div class="list" id="Ammonium_Nitrate">
+		This fertilizer type also comes in white crystalline salts. Ammonium Nitrate salts contains 33 to 35% nitrogen, of which half is nitrate nitrogen and the other half in the ammonium form. As part of the ammonium form, this type of fertilizer cannot be easily leached from the soil. This fertilizer is quick-acting, but highly hygroscopic thus making it unfit for storage. (TIP: Coagulation and Granulation of this fertilizer can be combated with a light coating of the granules with oil.) On a note of caution: Ammonium Nitrate also has an acid effect on the soil, in addition this type of fertilizer can be explosive under certain conditions, and, should thus be handled with care.
+
+		'Nitro Chalk' is the trade name of a product formed by mixing ammonium nitrate with about 40% lime-stone or dolomite. This fertilizer is granulated, non-hazardous and less hygroscopic. The lime content of this fertilizer type makes it useful for application to acidic garden soils.
+	</div>
+	<div class="list" id="Ammonium_Sulphate_Nitrate">
+		This fertilizer type is available as a mixture of ammonium nitrate and ammonium sulphate and is recognizable as a white crystal or as dirty-white granules. This fertilizer contains 26% nitrogen, three-fourths of it in the ammoniac form and the remainder (i.e. 6.5%) as nitrate nitrogen. Ammonium Sulphate Nitrate is non-explosive, readily soluble in water and is very quick-acting. Because this type of fertilizer keeps well, it is very useful for all crops. Though it can also render garden soil acidic, the acidifying effects is only one-half of that of ammonium sulphate on garden soil. Application of this fertilizer type can be done before sowing, at sowing time or as a top-dressing, but it should not be applied along the seed.
+	</div>
+	<div class="list" id="Ammonium_Chloride">
+		This fertilizer type comes in a white crystalline compound, which contains a good physical condition and 26% ammoniac nitrogen. In general, Ammonium Chloride is similar to ammonium sulphate in action. (TIP: Do not use this type of fertilizer on crops such as tomatoes because the chorine may harm your crop.)
+	</div>
+	<div class="list" id="Urea">
+		This type of fertilizer usually is available to the public in a white, crystalline, organic form. It is a highly concentrated nitrogenous fertilizer and fairly hygroscopic. This also means that this fertilizer can be quite difficult to apply. Urea is also produced in granular or pellet forms and is coated with a non-hygroscopic inert material. It is highly soluble in water and therefore, subject to rapid leaching. It is, however, quick-acting and produces quick results. When applied to the soil, its nitrogen is rapidly changed into ammonia. Similar to ammonium nitrate, urea supplies nothing but nitrogen and the application of Urea as fertilizer can be done at sowing time or as a top-dressing, but should not be allowed to come into contact with the seed.
+	</div>
+	<div class="list" id="Ammonia">
+		This fertilizer type is a gas that is made up of about 80% of nitrogen and comes in a liquid form as well because under the right conditions regarding temperature and pressure, Ammonia becomes liquid (anhydrous ammonia). Another form, 'aqueous ammonia', results from the absorption of Ammonia gas into water, in which it is soluble. Ammonia is used as a fertilizer in both these forms. The anhydrous liquid form of Ammonia can be applied by introducing it into irrigation water, or directly into the soil from special containers. Not really suitable for the home gardener as this renders the use of ammonia as a fertilizer very expensive.
+	</div>
+	<div class="list" id="Organic_Nitrogenous_Fertilizer">
+		Organic Nitrogenous fertilizer is the type of fertilizer that includes plant and animal by-products. These by-products can be anything from oil cakes, to fish manure and even to dried blood. The Nitrogen available in organic nitrogenous fertilizer types first has to be converted before the plants can use it. This conversion occurs through bacterial action and is thus a slow process. The upside of this situation is that the supply of available nitrogen lasts so much longer AND the amounts of this type of fertilizer may contain small amounts of organic stimulants that contain other minor elements that might also be needed by the plants that are being fertilized. Furthermore, they may also small amounts of organic stimulants that they may contain, or of some of the minor elements needed by plant. Oil-cakes contain not only nitrogen but also some phosphoric and potash, besides a large quantity of organic matter. This type of fertilizer is used in conjunction with quicker-acting chemical fertilizers.
+
+		Then there is also blood meal which contains 10 to 12% highly available Nitrogen as well as 1 to 2% Phosphoric acid. Blood meal, used in much the same way as oilcakes, makes for a quick remedy and can effectively be used on all types of soil as a type of fertilizer.
+
+		Fish meal which can be dried fish, fish-meal or even powder is extracted in areas where fish oil is extracted. The resulting residue is used as a fertilizer type. Obviously depending on the type of fish used, the available Nitrogen can be between 5 and 8% and the Phosphoric content can be from 4 to 6%. Fish meal also constitutes a fast-acting fertilizer type which is suitable for most soil types and crops. (TIP: In powder form it is at its best.)
+	</div>
+	<div class="list" id="Rock_Phosphate">
+		As a type of fertilizer, rock phosphate occurs as natural deposits in some countries. This fertilizer type has its advantages and disadvantages. The advantage is that with adequate rainfall this fertilizer results in a long growing period which can enhance crops. Powdered phosphate fertilizer is an excellent remedy for soils that are acidic and has a phosphorous deficiency and requires soil amendments.
+
+		However, the disadvantage is that although phosphate fertilizer such as rock phosphate contains 25 to 35% phosphoric acid, the phosphorous is insoluble in water. It has to be pulverized to be used as a type of fertilizer before rendering satisfactory results in garden soil. Thus it is not surprising that Rock Phosphate is used to manufacture superphosphate which makes the Phosphoric acid water soluble.
+	</div>
+	<div class="list" id="Superphosphate">
+		Superphosphate is a fertilizer type that most gardeners are familiar with. As a fertilizer type one can get superphosphate in three different grades, depending on the manufacturing process. The following is a short description of the different superphosphate fertilizer grades:
+
+    	Single superphosphate containing 16 to 20% phosphoric acid;
+    	Dicalcium phosphate containing 35 to 38% phosphoric acid; and
+    	Triple superphosphate containing 44 to 49% phosphoric acid.
+
+		Triple superphosphate is used mostly in the manufacture of concentrated mixed fertilizer types.
+
+		The greatest advantage to be had of using Superphosphate as a fertilizer is that the phosphoric acid is fully water soluble, but when Superphosphate is applied to the soil, it is converted into soluble phosphate. This is due to precipitation as calcium, iron or aluminum phosphate, which is dependent on the soil type to which the fertilizer is added, be it alkaline or acidic garden soil. All garden soil types can benefit from the application of Superphosphate as a fertilizer. Used in conjunction with an organic fertilizer, it should be applied at sowing or transplant time.
+	</div>
+	<div class="list" id="Slag">
+		Basic slag is a by-product of steel mills and is used as a fertilizer to a lesser extent than Superphosphate. Slag is an excellent fertilizer that can be used to amend soils that are acidic because of its alkaline reaction. For slag application to be an effective fertilizer it has to be pulverized first.
+	</div>
+	<div class="list" id="Bonemeal">
+		Bonemeal as a fertilizer type needs no introduction. Bone-meal is used as a phosphate fertilizer type and is available in two types: raw and steamed. The raw bone-meal contains 4% organic Nitrogen that is slow acting, and 20 to 25% phosphoric acid that is not soluble in water. The steamed bone-meal on the other hand has all the fats, greases, nitrogen and glue-making substances removed as a result of high pressure steaming. But it is more brittle and can be ground into a powder form. In powder form this fertilizer is of great advantage to the gardener in that the rate of availability of the phosphoric acid depends on its pulverization. This fertilizer is particularly suitable as a soil amendment for acid soil and should be applied either at sowing time or even a few days prior to sowing. (TIP: As a fertilizer type, bone-meal is slow acting and should be incorporated into the soil and not as a top-dressing.)
+	</div>
+	<div class="list" id="Muriate_of_potash">
+		Chemical Potassium fertilizer should only be added when there is absolute certainty that there is a Potassium deficiency in your garden soil. Potassium fertilizers also work well in sandy garden soil that responds to their application. Crops such as chilies, potato and fruit trees all benefit from this type of fertilizer since it improves the quality and appearance of the produce.
+
+		Muriate of potash is a gray crystal type of fertilizer that consists of 50 to 60% potash. All the potash in this fertilizer type is readily available to plants because it is highly soluble in water. Even so, it does not leach away deep into the soil since the potash is absorbed on the colloidal surfaces. (TIP: Apply muriate of potash at sowing time or prior to sowing.)
+	</div>
+	<div class="list" id="Sulphate_of_potash">
+		Chemical Potassium fertilizer should only be added when there is absolute certainty that there is a Potassium deficiency in your garden soil. Potassium fertilizers also work well in sandy garden soil that responds to their application. Crops such as chilies, potato and fruit trees all benefit from this type of fertilizer since it improves the quality and appearance of the produce.
+
+		Sulphate of potash is a fertilizer type manufactured when potassium chloride is treated with magnesium sulphate. It dissolves readily in water and can be applied to the garden soil at any time up to sowing. Some gardeners prefer using sulphate of potash over muriate of potash
+	</div>
+
+	</div>
+</div>
