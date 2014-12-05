@@ -1,0 +1,37 @@
+<div id="postsHome">
+<h2 class="sideHeading">Farmer Questions</h2>
+<div id="postQuestion">
+&nbsp&nbsp&nbsp&nbsp
+<span>Have a Question? Post it here.</span> <%= link_to "<button>Ask Question</button>".html_safe, new_post_path %>
+</div>
+
+<div id="postTabs"> 
+	<ul>
+		<li><%= link_to "My Posts(#{current_user.posts.count})", posts_path(type: "My Posts") %></li>
+		<li><%= link_to "Unanswered Posts(#{Post.where('comments_count = 0').count})", posts_path(type: "Unanswered Posts") %></li>
+		<li><%= link_to "All Posts(#{Post.count})", posts_path(type: "All Posts") %></li>
+	</ul>
+</div>
+<div id="postContent">
+	<table class="tableDetails">
+	<tr>
+		<% if @posts.present? %>
+		<td class="field"><h3>Questions</h3>
+		<ol>
+		<% @posts.each do |post| %>
+			<li style = "border-bottom: 1px solid #dadada">
+			<p style="font-size: 120%"><%= link_to post.content, post_path(post) %></p>
+				<span style="line-height: 1px;">
+				<small>
+					<p style="font-size: 95%">--Posted by <%= link_to post.user.first_name, user_path(post.user) %> <%= time_ago_in_words(post.created_at)%> ago</p>
+				</small>
+			</span>
+			</li>
+		<% end %>
+		</ol>
+		</td>
+		<% end %>
+		</tr>
+	</table>
+	</div>
+</div>

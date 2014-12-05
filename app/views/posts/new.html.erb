@@ -1,0 +1,21 @@
+<%= form_for(@post) do |f|%>
+<%= render "shared/error_messages", object: f.object %>
+   <table class="tableDetails">
+   	<tr>
+   		<td class="field">
+   			<label>Your Question</label>
+   		</td>
+   		</tr>
+   	<tr>
+   		<td class="field">
+   		<%= f.text_area :content, class: "message_area" %>
+   		</td>
+   	</tr>
+   </table>
+   <div class="button_align">
+		<ul>
+			<li><%= f.submit "Submit", class: 'submit_button' %></li>
+			<li><%= link_to "Cancel", posts_path, class: 'submit_button' %></li>
+		</ul>
+	</div>	
+<% end%>

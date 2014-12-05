@@ -102,3 +102,35 @@
 * html #cssmenu ul {
   height: 1%;
 }
+
+#postTabs ul {
+  list-style: none;
+  padding:0 10px;
+  margin:0;
+}
+
+#postTabs li {
+  display: inline;
+  border: solid;
+  border-width: 1px 1px 0 1px;
+  margin: 0 0.5em 0 0;
+}
+
+#postContent {
+  border-top: 1px solid;
+  clear: both;
+}
+
+#postTabs li {
+  float: left;
+  border: 1px solid;
+  border-bottom-width: 0;
+  margin: 0 0.5em 0 0;
+}
+
+#postTabs li a{
+background-color: none; 
+}
+#postTabs li a:hover{
+  background: #000;
+}

@@ -1,0 +1,8 @@
+<h3>Your answer</h3>
+<%= form_for([@post, @comment]) do |f| %>
+<%= render "shared/error_messages", object: f.object %>
+  <div class="field">
+    <%= f.text_area :content, class: "message_area" %>
+  </div>
+  <%= f.submit "Submit", class: 'submit_button' %>
+<% end %>

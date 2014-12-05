@@ -1,0 +1,38 @@
+<div id="showQuestion">
+	<h2 class="sideHeading">Question Details</h2>
+	<table class="tableDetails">
+	<tr>
+		<td class="field">
+			<h2><%= link_to @post.content, post_path(@post) %></h2>
+		</td>
+		<!-- <td>
+			<%= link_to "<button>Delete</button>".html_safe, @post, method: "delete",
+	                                                   confirm: "Are you sure?" %>
+		</td> -->
+	</tr>
+	<tr>
+		<td class="field">
+		<% if @post_comments.present? %>
+		<h3>Answers</h3>
+		<div>
+		<ol>
+		<% @post_comments.each do |comment| %>
+			<li style = "border-bottom: 1px solid #dadada">
+			<p> <%= comment.content %> </p>
+			<span style="line-height: 1px;"> 
+			<small>
+				<p style="font-size: 95%">--Posted by <%= comment.user.first_name %> <%= time_ago_in_words(comment.created_at) %> ago</p>
+			</small>
+			</span>
+			<% end %>
+			</li>
+		</ol>
+		</div>
+		<% else %>
+			<p style = "border-bottom: 1px solid #dadada"> &nbsp No Answers </p>
+		<% end %>
+		<%= render 'comments/comments_form',  post:@post %>
+		</td>
+	</tr>
+   </table>
+</div>

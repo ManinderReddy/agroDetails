@@ -30,6 +30,10 @@ Rails.application.routes.draw do
     put 'update_selected', on: :collection
   end
 
+  resources :posts do
+    resources :comments
+  end
+
   root to: "pages#home"
   
   match '/contact',       to: 'pages#contact',    :via => [:get]

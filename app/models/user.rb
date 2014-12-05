@@ -67,6 +67,9 @@ class User < ActiveRecord::Base
 
 	has_many :soils, through: :farm_details
 	#has_many :fertilizers, through: :farm_details
+
+	has_many :posts, dependent: :destroy
+	has_many :comments
 	# Functions for user model
 	def password_match?(login_password)
 		encrypted_password == encrypt(login_password)	

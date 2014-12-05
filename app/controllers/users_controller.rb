@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 before_filter :authenticate, only: [:show, :edit, :update]
-before_filter :correct_user, only: [:show, :edit, :update]
+before_filter :correct_user, only: [:edit, :update]
 
 	def index
 		redirect_to user_path(current_user)

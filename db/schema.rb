@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141105153519) do
+ActiveRecord::Schema.define(version: 20141130100857) do
+
+  create_table "comments", force: true do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["post_id", "created_at"], name: "index_comments_on_post_id_and_created_at"
 
   create_table "crops", force: true do |t|
     t.string   "crop_name"
@@ -60,6 +70,16 @@ ActiveRecord::Schema.define(version: 20141105153519) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "posts", force: true do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "comments_count", default: 0, null: false
+  end
+
+  add_index "posts", ["user_id", "created_at"], name: "index_posts_on_user_id_and_created_at"
 
   create_table "soils", force: true do |t|
     t.integer  "farm_detail_id"
